@@ -34,7 +34,7 @@ const CalendarPage = ({navigation}) => {
                 color:'black',
                 height: 350
               }}
-              markingType={'interactive'}
+              
               markedDates={{
                 '2021-11-16': {selected: true, marked: true, selectedColor: '#FF5959'},
                 '2021-11-17': {marked: true,dotColor: '#FF5959'},

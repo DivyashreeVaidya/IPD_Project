@@ -75,23 +75,27 @@ const Tabs = () => {
                         height:focused?40:30,
                         tintColor:focused?"#ff5959":"#000000"
                     }}/>
-                    <Text style={{color:focused?"#ff5959":"#000000",fontSize:15}}>READ</Text>
+                    <Text style={{color:focused?"#ff5959":"#000000",fontSize:15, }}>READ</Text>
                 </View>
             ),
         }}/>
-          <Tab.Screen name="Calendar" component={ScreenNavigator3} options={{
+          <Tab.Screen name="Calendar" component={ScreenNavigator3} 
+          options={{
              tabBarIcon:({focused})=>(
+                <View style={{alignItems:'center',justifyContent:'center', top:10}}>
                      <Image source={require("../assets/calendar_edit.png")}
                      resizeMode='contain'
                      style={{
-                         width:30,
-                         height:30,
-                         tintColor:"#ffffff"
+                        width:focused?40:30,
+                        height:focused?40:30,
+                        tintColor:focused?"#ff5959":"#000000"
                      }}/>
+                     <Text style={{color:focused?"#ff5959":"#000000",fontSize:15}}>MARK</Text>
+                </View>
              ),
-             tabBarButton: (props) => (
-                 <CustomTabBarButton {...props}/>
-             )
+            //  tabBarButton: (props) => (
+            //      <CustomTabBarButton {...props}/>
+            //  )
          }}/>
          <Tab.Screen name="Emergency Calls" component={ScreenNavigator4}
          options={{

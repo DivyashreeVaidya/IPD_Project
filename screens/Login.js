@@ -4,9 +4,9 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
 import React, {useState, useEffect} from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
-import { Button, Snackbar } from 'react-native-paper';
+import { Button, Snackbar, Surface, Text, Headline } from 'react-native-paper';
 import { TextInput } from 'react-native-paper';
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
@@ -185,6 +185,8 @@ const Login = ({navigation}) => {
 		            >
 					  	Login Successful!
 		            </Snackbar>
+                <Headline style={styles.title}>Login To Your Account.</Headline>
+                    <Surface style={styles.bgSurface}>
                     <TextInput
                       label="Email" 
                       type="email"
@@ -201,8 +203,9 @@ const Login = ({navigation}) => {
                       onChangeText={handleChange('email')}
                       onBlur={handleBlur('email')}
                       value={values.email}
+                      style={styles.txtInput}
                     /> 
-                    <Text>{errors.email}</Text>
+                    <Text style={styles.errText}>{errors.email}</Text>
                     <TextInput
                      label="Password"
                      secureTextEntry
@@ -222,22 +225,28 @@ const Login = ({navigation}) => {
                      onChangeText={handleChange('password')}
                      onBlur={handleBlur('password')}
                      value={values.password}
+                     style={styles.txtInput}
                     />
-                    <Text>{errors.password}</Text>
+                    <Text style={styles.errText}>{errors.password}</Text>
               <Button 
                type="submit" 
                halfWidth
                disabled={isSubmitting}
-               style={{backgroundColor:"#04BEFC",padding:10}}
+               style={{backgroundColor:"#FF5959",padding:10,width:300,
+               marginLeft:'auto',
+               marginRight:'auto'}}
                mode="contained" 
                onPress={handleSubmit} 
-               title="Submit" > LOGIN </Button>
-               <Text>Don't have an account?</Text>
-               <Button  
-               style={{backgroundColor:"#04BEFC",padding:10}}
-               mode="contained" 
-               onPress={registerHandler} 
-               > Create one here </Button>
+               title="Submit" > 
+               <Text style={styles.btnText}>
+               LOGIN 
+               </Text></Button>
+               <Text style={styles.linkTxt1}>Don't have an account?</Text>
+               <TouchableOpacity  
+               onPress={registerHandler}> 
+               
+               <Text style={styles.linkTxt2}> Create one here.</Text> 
+               </TouchableOpacity></Surface>
               </View>
      )}
             </Formik>
@@ -290,67 +299,57 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#F9D157",
+        justifyContent:"center"
     },
     title: {
-        height:100,
-        alignSelf: "center",
-        fontSize: 24,
-        fontWeight: "600",
-        textAlignVertical: "center",
+        textAlign:'left',
+        marginLeft:25,
+        fontSize: 35,
+        marginTop:-18,
+        fontWeight: "bold",
+        paddingTop:5
     },
-
-    inpText: {
-        fontSize: 18,
-        left: 30,
-        fontWeight: "500",
-        marginBottom: 5,
+    bgSurface:{
+      width:350,
+      height:450,
+      backgroundColor:'#C4C4C4',
+      elevation:5,
+      marginLeft:'auto',
+      marginRight:'auto',
+      marginTop:20,
+      justifyContent:"center"
     },
-
-    input: {
-        height: 50,
-        backgroundColor: "white",
-        width: "80%",
-        left: 30,
-        marginBottom: 20,
-        borderRadius: 5,
-        color: "black",
+    errText:{
+      marginLeft:30,
+      fontSize:18,
+      fontWeight:'bold',
+      fontFamily:'Roboto',
+      color:'red'
     },
-
-    btn: {
-        height: 40,
-        width: 90,
-        backgroundColor: "#FF5959",
-        alignSelf: "center",
-        alignItems: "center",
-        justifyContent: "center",
+    linkTxt1:{
+      fontWeight:'bold',
+      textAlign:'center',
+      fontSize:22,
+      marginTop:35
     },
-
-    btnText: {
-        color: "white",
-        fontSize: 18,
-        fontWeight: "600",
+    linkTxt2:{
+      fontWeight:'bold',
+      textAlign:'center',
+      fontSize:22,
+      marginBottom:40,
+      textDecorationLine:'underline'
     },
-
-    footer: {
-        top: 25,
-        height: 90,
-        flexDirection: "row",
-        alignItems: "center",
-        padding: 18,
-        justifyContent: "space-between",
-        borderTopWidth: 2,
-        borderTopColor: "#E5E5E5",
-        backgroundColor: "white",
+    btnText:{
+      fontSize:22,
+      fontWeight:'bold',
+      color:'white'
     },
-    
-    fElement: {
-        color: "red",
-        alignItems: "center",
-    },
-    
-    fImg: {
-        marginBottom: 10,
-    },
+     txtInput:{
+      fontSize: 22,
+       width:300,
+       marginLeft:'auto',
+       marginRight:'auto',
+     },
 
 });
 

@@ -4,8 +4,8 @@
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Button, Snackbar } from 'react-native-paper';
+import { Image, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Button, Surface, Text, Snackbar } from 'react-native-paper';
 
 const OpeningPage = ({navigation}) => {
 
@@ -17,17 +17,34 @@ const OpeningPage = ({navigation}) => {
     return (
         <View style={styles.ePage}>
            <Image style={styles.hImg} source={require("../assets/opening_page-removebg-preview.png")}/>
-           <Button  
+           {/* <Button  
                style={{
                 width: 300,
-                height: 80,
+                height: 100,
+                color:'white',
                 marginLeft:'auto',
                 marginRight:'auto',
                 marginTop:120,
+                padding:15,
                 backgroundColor: '#FF5959'}}
                 mode="contained" 
                 onPress={registerHandler} 
-               > Create an Account Today </Button>
+               > Test button</Button> */}
+               <TouchableOpacity onPress={registerHandler}>
+                   <Surface
+                   style={{
+                    width: 300,
+                    height: 100,
+                    color:'white',
+                    marginLeft:'auto',
+                    marginRight:'auto',
+                    marginTop:120,
+                    padding:15,
+                    backgroundColor: '#FF5959',
+                    elevation:5,
+                    borderRadius:30}}>
+               <Text style={styles.btnText}>Create an Account {'\n'}Today </Text></Surface></TouchableOpacity>
+               
         </View>
     )
 }
@@ -44,8 +61,11 @@ const styles = StyleSheet.create({
         marginRight:'auto',
         marginTop:60
     },    
-    btn:{
-        marginBottom:10
+    btnText:{
+        color:'white',
+        fontSize:23,
+        fontFamily:'Roboto',
+        textAlign:'center'
     },
     container1: {
         top: 50,

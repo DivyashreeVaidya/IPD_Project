@@ -15,6 +15,9 @@ import Register from './screens/Register';
 import OpeningPage from './screens/OpeningPage';
 import BottomNavigation  from './screens/BottomNavigation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import CalendarPage from './screens/CalendarPage';
+import ContentLibrary from './screens/ContentLibrary';
+import AudioLibrary from './screens/AudioLibrary';
 
 const Stack = createNativeStackNavigator();
 //const token = '';
@@ -44,7 +47,10 @@ const App = () => {
       </Stack.Navigator>
       : 
         <>
-        <Stack.Navigator initialRouteName="Home"> 
+        <Stack.Navigator initialRouteName="Content Library">
+        <Stack.Screen name="Content Library" component={ContentLibrary} />
+        <Stack.Screen name="Audio Library" component={AudioLibrary} />
+        <Stack.Screen name="Calendar " component={CalendarPage} />
         <Stack.Screen name="Home" component={Home} options={{ title: 'Heyy Sam!' }}/>
         {/* <Stack.Screen name="BottomNavigation" component={BottomNavigation}/> */}
         <Stack.Screen name="Events" component={EventsPage} />

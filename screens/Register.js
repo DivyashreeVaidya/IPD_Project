@@ -6,7 +6,7 @@
 import React, {useState} from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Formik } from 'formik';
-import { Button, Snackbar } from 'react-native-paper';
+import { Headline, Surface, Button, Snackbar } from 'react-native-paper';
 import { TextInput } from 'react-native-paper';
 //API fetching
 import axios from 'axios';
@@ -186,7 +186,10 @@ const Register = ({navigation}) => {
 		            >
 					  	Account Created Successfully!
 		            </Snackbar>
+                    <Headline style={styles.title}>Create Your Account.</Headline>
+                    <Surface style={styles.bgSurface}>
                     <TextInput
+                      style={styles.txtInput}
                       label="Enter Email" 
                       type="email"
                       halfWidth
@@ -203,8 +206,9 @@ const Register = ({navigation}) => {
                       onBlur={handleBlur('email')}
                       value={values.email}
                     /> 
-                    <Text>{errors.email}</Text>
+                    <Text style={styles.errText}>{errors.email}</Text>
                     <TextInput
+                      style={styles.txtInput}
                       label="Enter Username" 
                       type="username"
                       halfWidth
@@ -221,8 +225,9 @@ const Register = ({navigation}) => {
                       onBlur={handleBlur('username')}
                       value={values.username}
                     /> 
-                    <Text>{errors.username}</Text>
+                    <Text style={styles.errText}>{errors.username}</Text>
                     <TextInput
+                      style={styles.txtInput}
                       label="First Name" 
                       type="first_name"
                       halfWidth
@@ -239,8 +244,9 @@ const Register = ({navigation}) => {
                       onBlur={handleBlur('first_name')}
                       value={values.first_name}
                     /> 
-                    <Text>{errors.first_name}</Text>
+                    <Text style={styles.errText}>{errors.first_name}</Text>
                     <TextInput
+                      style={styles.txtInput}
                       label="Last Name" 
                       type="last_name"
                       halfWidth
@@ -257,8 +263,9 @@ const Register = ({navigation}) => {
                       onBlur={handleBlur('last_name')}
                       value={values.last_name}
                     /> 
-                    <Text>{errors.last_name}</Text>
+                    <Text style={styles.errText}>{errors.last_name}</Text>
                     <TextInput
+                     style={styles.txtInput}
                      label="Password"
                      secureTextEntry
                      right={<TextInput.Icon name="eye" />}
@@ -278,8 +285,9 @@ const Register = ({navigation}) => {
                      onBlur={handleBlur('password')}
                      value={values.password}
                     />
-                    <Text>{errors.password}</Text>
+                    <Text style={styles.errText}>{errors.password}</Text>
                     <TextInput
+                     style={styles.txtInput}
                      label="Re-Enter Password"
                      secureTextEntry
                      right={<TextInput.Icon name="eye" />}
@@ -299,66 +307,33 @@ const Register = ({navigation}) => {
                      onBlur={handleBlur('password1')}
                      value={values.password1}
                     />
-                    <Text>{errors.password1}</Text>
+                    <Text style={styles.errText}>{errors.password1}</Text>
               <Button 
                type="submit" 
                halfWidth
                disabled={isSubmitting}
                variant="contained" 
-               style={{backgroundColor:"#04BEFC",padding:10}}
-               mode="contained" 
+               style={{backgroundColor:"#FF5959",padding:10,width:300,height:55,
+               marginLeft:'auto',
+               marginRight:'auto', marginBottom:20}}
+               mode="contained"  
                onPress={handleSubmit} 
-               title="Submit" > CREATE ACCOUNT </Button>
-               <Text>Already have an account?</Text>
-               <Button  
-               style={{backgroundColor:"#04BEFC",padding:10}}
-               mode="contained" 
-               onPress={loginHandler} 
-               >  Log in here </Button>
+               title="Submit" >
+               <Text style={styles.btnText}> 
+               CREATE ACCOUNT 
+               </Text>
+               </Button>
+               <Text style={styles.linkTxt1}>Already have an account?{'\n'}</Text>
+               <TouchableOpacity
+               onPress={loginHandler}>  
+               <Text style={styles.linkTxt2}>
+               Log in here. 
+               </Text>
+               </TouchableOpacity></Surface>
               </View>
      )}
             </Formik>
-            {/* <View style={styles.container}> */}
-                {/* <Text style={styles.title}>Welcome Back! Login Here</Text>
-                <View style={styles.content}>
-                    <Text style={styles.inpText}>Email</Text>
-                    <TextInput style={styles.input} onChange={(e) => setEmail(e.target.value)} value={email}/>
-
-                    <Text style={styles.inpText}>Enter Password</Text>
-                    <TextInput style={styles.input} onChange={(e) => setPassword(e.target.value)} value={password}/>
-                </View>
-
-                <TouchableOpacity >
-                    <View style={styles.btn}>
-                        <Text style={styles.btnText}>LOGIN</Text>
-                    </View>    
-                </TouchableOpacity> */}
-                {/* <Button 
-                type="submit" 
-                halfWidth
-                variant="contained" 
-                style={{backgroundColor:"#04BEFC",padding:10}}
-                icon="camera" mode="contained" onPress={() => console.log('Pressed')}>
-                 Press me
-                </Button> */}
-
-                {/* <View style={styles.footer}>
-                    <View style={styles.fElement}>
-                        <Image style={styles.fImg} source={require("../assets/Calendar.png")}/>
-                        <Text >Calendar</Text>
-                    </View>
-
-                    <TouchableOpacity onPress={homeHandler} style={styles.fElement}>
-                        <Image style={styles.fImg} source={require("../assets/Home.png")}/>
-                        <Text style={{color: "#FF5959"}} >Home</Text>
-                    </TouchableOpacity>
-
-                    <View style={styles.fElement}>
-                        <Image style={styles.fImg} source={require("../assets/Medicines.png")}/>
-                        <Text>Medicines</Text>
-                    </View>
-                </View> */}
-            {/* </View>*/}</> 
+        </> 
         );
     
 };
@@ -367,67 +342,61 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#F9D157",
+        justifyContent:"center"
     },
     title: {
-        height:100,
-        alignSelf: "center",
-        fontSize: 24,
-        fontWeight: "600",
-        textAlignVertical: "center",
+        textAlign:'left',
+        marginLeft:25,
+        fontSize: 40,
+        marginTop:0,
+        fontWeight: "bold",
+        fontFamily:'Roboto',
+        paddingTop:7
     },
-
-    inpText: {
-        fontSize: 18,
-        left: 30,
-        fontWeight: "500",
-        marginBottom: 5,
+    bgSurface:{
+      width:350,
+      height:550,
+      backgroundColor:'#C4C4C4',
+      elevation:5,
+      marginLeft:'auto',
+      marginRight:'auto',
+      marginTop:10,
+      justifyContent:"space-around" 
     },
-
-    input: {
-        height: 50,
-        backgroundColor: "white",
-        width: "80%",
-        left: 30,
-        marginBottom: 20,
-        borderRadius: 5,
-        color: "black",
+    errText:{
+      marginLeft:30,
+      fontSize:18,
+      fontWeight:'bold',
+      fontFamily:'Roboto',
+      color:'red',
+      paddingBottom:5
     },
-
-    btn: {
-        height: 40,
-        width: 90,
-        backgroundColor: "#FF5959",
-        alignSelf: "center",
-        alignItems: "center",
-        justifyContent: "center",
+    linkTxt1:{
+      fontWeight:'bold',
+      textAlign:'center',
+      fontSize:18,
+      marginTop:30
     },
-
-    btnText: {
-        color: "white",
-        fontSize: 18,
-        fontWeight: "600",
+    linkTxt2:{
+      fontWeight:'bold',
+      textAlign:'center',
+      fontSize:18,
+      marginBottom:30,
+      textDecorationLine:'underline'
     },
-
-    footer: {
-        top: 25,
-        height: 90,
-        flexDirection: "row",
-        alignItems: "center",
-        padding: 18,
-        justifyContent: "space-between",
-        borderTopWidth: 2,
-        borderTopColor: "#E5E5E5",
-        backgroundColor: "white",
+    btnText:{
+      fontSize:16,
+      fontWeight:'bold',
+      color:'white',
     },
-    
-    fElement: {
-        color: "red",
-        alignItems: "center",
-    },
-    
-    fImg: {
-        marginBottom: 10,
-    },
+     txtInput:{
+      fontSize: 18,
+      height:55,
+       width:300,
+       marginTop:30,
+       marginLeft:'auto',
+       marginRight:'auto',
+     },
 
 });
 

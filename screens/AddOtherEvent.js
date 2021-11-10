@@ -42,22 +42,6 @@ const AddOtherEvent = ({navigation}) => {
                     
                 </TouchableOpacity>
 
-                <View style={styles.footer}>
-                    <View style={styles.fElement}>
-                        <Image style={styles.fImg} source={require("../assets/Calendar.png")}/>
-                        <Text >Calendar</Text>
-                    </View>
-
-                    <TouchableOpacity onPress={homeHandler} style={styles.fElement}>
-                        <Image style={styles.fImg} source={require("../assets/Home.png")}/>
-                        <Text style={{color: "#FF5959"}} >Home</Text>
-                    </TouchableOpacity>
-
-                    <View style={styles.fElement}>
-                        <Image style={styles.fImg} source={require("../assets/Medicines.png")}/>
-                        <Text>Medicines</Text>
-                    </View>
-                </View>
             </View>
         );
     

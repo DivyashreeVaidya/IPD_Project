@@ -15,9 +15,13 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EventsPage from './EventsPage';
 import AddAppointments from './AddAppointments';
+import AddOtherEvent from './AddOtherEvent';
+import AddMeds from './AddMeds';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button, Snackbar } from 'react-native-paper';
-const Tab = createMaterialBottomTabNavigator();
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+const Stack = createNativeStackNavigator();
 const Home = ({navigation}) => {
 
 
@@ -57,8 +61,6 @@ return (
         <Text style={styles.hText}>Heyy Sam!</Text>
         <Image style={styles.hImg} source={require("../assets/Avatar.png")}/>
         </View> */}
-
-
         <View style={styles.eTabs}>
         <Text style={styles.eText} >Events</Text>
         <Text style={styles.eText} >Appointments</Text>

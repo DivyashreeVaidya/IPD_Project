@@ -60,10 +60,10 @@ const CalendarPage = ({navigation}) => {
                 textDayFontWeight: 'bold',
                 textMonthFontWeight: 'bold',
                 textDayHeaderFontWeight: 'bold',
-                textDayFontSize: 20,
+                textDayFontSize: 18,
                 textMonthFontSize: 20,
                 textDayFontWeight:'bold',
-                textDayHeaderFontSize: 20
+                textDayHeaderFontSize: 18
               }}
   current={'2021-11-10'}
   // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined

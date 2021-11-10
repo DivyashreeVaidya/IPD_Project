@@ -4,10 +4,11 @@
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { ScrollView, Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Button, Headline } from 'react-native-paper';
+import Swiper from 'react-native-swiper'
 
-const AudioLibrary = ({navigation}) => {
+const ReadingGlasses = ({navigation}) => {
 
     function videoHandler () {
         navigation.navigate('Video Library');
@@ -20,36 +21,8 @@ const AudioLibrary = ({navigation}) => {
 
     return (
         <View style={styles.ePage}>
-            <Image style={styles.hImg} source={require("../assets/audiolib.png")}/>
-           <Headline style={styles.title}>What would you like to explore today?</Headline>
-           <Button 
-               style={styles.buttonStyle}
-               mode="contained">
-               <Text style={styles.btnText}> 
-               Music
-               </Text>
-               </Button>
-               <Button  
-               style={styles.buttonStyle}
-               mode="contained">
-               <Text style={styles.btnText}> 
-               AudioBooks 
-               </Text>
-               </Button> 
-               <Button  
-               style={styles.buttonStyle}
-               mode="contained">
-               <Text style={styles.btnText}> 
-               Guided Meditations 
-               </Text>
-               </Button>
-               <Button  
-               style={styles.buttonStyle}
-               mode="contained">
-               <Text style={styles.btnText}> 
-               Podcasts / Sleepcasts 
-               </Text>
-               </Button>    
+            <Image style={styles.hImg} source={require("../assets/reading1.jpg")}/> 
+            <Image style={styles.hImg} source={require("../assets/reading2.jpg")}/>  
         </View>
     )
 }
@@ -61,6 +34,19 @@ const styles = StyleSheet.create({
         backgroundColor: "#F9D157",
         justifyContent:'space-around'
     },
+    wrapper: {},
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB'
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5'
+  },
     hImg: {
         marginLeft:'auto',
         marginRight:'auto',
@@ -88,4 +74,4 @@ const styles = StyleSheet.create({
     marginRight:'auto', marginBottom:0}
 })
 
-export default AudioLibrary;
+export default ReadingGlasses;

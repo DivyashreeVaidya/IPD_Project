@@ -5,9 +5,9 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Button, Headline } from 'react-native-paper';
+import { Headline, Button } from 'react-native-paper';
 
-const VideoLibrary = ({navigation}) => {
+const EmergencyCalls = ({navigation}) => {
 
     function videoHandler () {
         navigation.navigate('Video Library');
@@ -20,7 +20,7 @@ const VideoLibrary = ({navigation}) => {
 
     return (
         <View style={styles.ePage}>
-              <Text>Video Library</Text>
+              <Headline style={styles.title}>Emergency Contacts</Headline>
         </View>
     )
 }
@@ -30,33 +30,20 @@ const styles = StyleSheet.create({
     ePage: {
         flex: 1,
         backgroundColor: "#F9D157",
-        justifyContent:'space-around'
+       
     },
-    hImg: {
-        marginLeft:'auto',
-        marginRight:'auto',
-        marginTop:10,
-        width:250,
-        height:200
-    },    
     title: {
         textAlign:'left',
         marginLeft:'auto',
         marginRight:'auto',
         fontSize: 25,
-        marginTop:-10,
+        marginTop:40,
         fontWeight: "bold",
         fontFamily:'Roboto',
         paddingTop:7},
-    btnText:{
-            fontSize:18,
-            fontWeight:'bold',
-            color:'white',
-            paddingBottom:10
-        },
     buttonStyle:{backgroundColor:"#FF5959",padding:10,width:300,height:65,
     marginLeft:'auto',
     marginRight:'auto', marginBottom:0}
 })
 
-export default VideoLibrary;
+export default EmergencyCalls;

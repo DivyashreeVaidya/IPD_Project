@@ -2,7 +2,7 @@
 /* eslint-disable quotes */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     StyleSheet,
     Text,
@@ -21,14 +21,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button, Snackbar } from 'react-native-paper';
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import AudioLibrary from './AudioLibrary';
 const Stack = createNativeStackNavigator();
+
 const Home = ({navigation}) => {
 
 
 function eventHandler () {
     navigation.navigate('Events');
 }
-
+const [token, setToken] = useState();
 // const logoutHandler = async () => {
 //     try {
 //         await AsyncStorage.removeItem('@token')
@@ -37,10 +39,13 @@ function eventHandler () {
 //         console.log(e)
 //       }
 // }
+
 const logoutHandler = async(key) => {
     try {
         await AsyncStorage.removeItem(key);
         console.log(true);
+        const isToken = await AsyncStorage.getItem(key)
+        console.log(isToken)
         
     }
     catch(exception) {
@@ -55,6 +60,8 @@ function medsHandler () {
 // function loginHandler(){
 //     navigation.navigate('Login');
 // }
+useEffect(() => {	
+    })
 return (
     <View style={styles.container}>
         {/* <View style={styles.header}>

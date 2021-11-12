@@ -11,6 +11,7 @@ import AddOtherEvent from './screens/AddOtherEvent';
 import AddMeds from './screens/AddMeds';
 import AudioLibrary from './screens/AudioLibrary';
 import VideoLibrary from './screens/VideoLibrary';
+import ScannerCam from "./screens/ScannerCam";
 //Bottom Tab Main Screens
 import Home from './screens/Home';
 import ReadingGlasses from "./screens/ReadingGlasses";
@@ -54,9 +55,13 @@ const ScreenNavigator2 = () => {
     return (
       <Stack.Navigator >
           <Stack.Screen
-            name="Reading/Magnifying Glasses"
+            name="Reading Glasses"
             component={ReadingGlasses}
         />
+        <Stack.Screen
+        name="Scan"
+        component={ScannerCam}
+      />
       </Stack.Navigator>
     );
   }

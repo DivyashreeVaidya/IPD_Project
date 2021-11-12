@@ -14,6 +14,8 @@ target 'IPD_SNC' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNMlKit', :path => '../node_modules/react-native-firebase-mlkit'
+
   target 'IPD_SNCTests' do
     inherit! :complete
     # Pods for testing

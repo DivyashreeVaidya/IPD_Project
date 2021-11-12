@@ -32,21 +32,22 @@ const App = () => {
     try {
       const tokenValue = await AsyncStorage.getItem('@token')
       if(tokenValue !== null) {
-        console.log("tokenValue is "+tokenValue)
+        console.log("APPtokenValue is "+tokenValue)
         setToken(tokenValue)
       }
     } catch(e) {
       console.log(e)
     }
   }
+  console.log('current value of token', token)
   useEffect(() => {
     getData()	
-    },[token] )
+    },[token])
   return (
     <NavigationContainer>
-      {!token? 
-      <Stack.Navigator initialRouteName="OpeningPage">
-      <Stack.Screen name="OpeningPage" component={OpeningPage}/> 
+      {token===''?
+      <Stack.Navigator initialRouteName="Opening Page" screenOptions={{headerShown:false}}>
+      <Stack.Screen name="Opening Page" component={OpeningPage}/> 
       <Stack.Screen name="Register" component={Register} options={{ title: 'Create Your Account' }}/> 
       <Stack.Screen name="Login" component={Login} options={{ title: 'User Login' }}/> 
       </Stack.Navigator>

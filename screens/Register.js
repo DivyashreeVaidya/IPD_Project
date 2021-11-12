@@ -308,6 +308,7 @@ const Register = ({navigation}) => {
                      value={values.password1}
                     />
                     <Text style={styles.errText}>{errors.password1}</Text>
+                    <Text style={styles.txtInput}></Text>
               <Button 
                type="submit" 
                halfWidth
@@ -315,7 +316,7 @@ const Register = ({navigation}) => {
                variant="contained" 
                style={{backgroundColor:"#FF5959",padding:10,width:300,height:55,
                marginLeft:'auto',
-               marginRight:'auto', marginBottom:20}}
+               marginRight:'auto', marginBottom:55}}
                mode="contained"  
                onPress={handleSubmit} 
                title="Submit" >
@@ -375,13 +376,13 @@ const styles = StyleSheet.create({
       fontWeight:'bold',
       textAlign:'center',
       fontSize:18,
-      marginTop:30
+      marginBottom:8
     },
     linkTxt2:{
       fontWeight:'bold',
       textAlign:'center',
       fontSize:18,
-      marginBottom:30,
+      marginBottom:28,
       textDecorationLine:'underline'
     },
     btnText:{

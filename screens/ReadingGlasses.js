@@ -4,21 +4,42 @@
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { ScrollView, Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Button, Headline, shadow } from 'react-native-paper';
+import { ScrollView, Image, Text, View, StyleSheet, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Surface, Button, Headline, shadow } from 'react-native-paper';
 import Swiper from 'react-native-swiper'
+import { RNCamera } from 'react-native-camera';
+import { useCamera } from 'react-native-camera-hooks';
+import { takePicture } from 'react-native-camera-hooks/src/takePicture';
+import { recordVideo } from 'react-native-camera-hooks/src/recordVideo';
 
 const ReadingGlasses = ({navigation}) => {
-
-    function videoHandler () {
-        navigation.navigate('Video Library');
+    function scanHandler () {
+        navigation.navigate('Scan');
     }
 
-    function audioHandler () {
-        navigation.navigate('Audio Library');
-    }
-
-
+    // const [
+    //     { cameraRef, type, ratio, autoFocus, autoFocusPoint, isRecording },
+    //     {
+    //       toggleFacing,
+    //       touchToFocus,
+    //       textRecognized,
+    //       facesDetected,
+    //       takePicture,
+    //       recordVideo,
+    //       resumePreview,
+    //       setIsRecording,
+    //     },
+    //   ] = useCamera(initialProps);
+    //   const resume = async () => { 
+    //       const r1 = await resumePreview({cameraRef})
+    //     return r1}
+    
+    //   const options = { quality: 0.5, base64: true };
+    // const takePicture = async function({cameraRef},options) {
+    //     const data = await camera.takePictureAsync(options);
+    //     //  eslint-disable-next-line
+    //     console.log(data.uri);
+    //   };
     return (
         <View style={styles.ePage}>
          <Swiper style={styles.wrapper} showsButtons loop={false}>
@@ -29,11 +50,43 @@ const ReadingGlasses = ({navigation}) => {
         <View testID="Beautiful" style={styles.slide2}>
         <Image style={styles.hImg} source={require("../assets/reading2.jpg")}/>
         <Headline style={styles.title2}>Scan anywhere, anytime.</Headline>
-        <Button styles={styles.buttonStyle}>
-            <Image source={require("../assets/camera.png")}
+        {/* <RNCamera
+                      ref={cameraRef}
+                      autoFocusPointOfInterest={autoFocusPoint.normalized}
+                      type={type}
+                      ratio={ratio}
+                      style={{ flex: 1 }}
+                      autoFocus={autoFocus}
+                      onTextRecognized={textRecognized}
+                      onFacesDetected={facesDetected}> */}
+        <TouchableOpacity onPress={
+            // async () => { 
+            // try {
+            // resume()
+            //   const data = await takePicture();
+            //   console.log(data);
+            //   console.log("text recognised="+textRecognized)
+            // } catch (error) {
+            //   console.warn(error);
+            // }} 
+            scanHandler}>
+            
+                   <Surface
+                   style={{
+                    width: 120,
+                    height: 80,
+                    color:'white',
+                    marginLeft:'auto',
+                    marginRight:'auto',
+                    bottom:-20,
+                    padding:15,
+                    backgroundColor: '#FF5959',
+                    elevation:5,
+                    borderRadius:40}}>
+                     <Image source={require("../assets/camera.png")}
                     resizeMode='contain'
-                    style={{width:40,
-height:40,}}/> </Button>
+                    style={{width:40,height:40,marginRight:'auto',marginLeft:'auto',marginBottom:'auto',marginTop:'auto'}}/>
+                     </Surface></TouchableOpacity>               
         </View>
         </Swiper>      
         </View>
@@ -71,7 +124,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f9d157',
-    top:8
+    top:17
   },
   text: {
     color: '#fff',

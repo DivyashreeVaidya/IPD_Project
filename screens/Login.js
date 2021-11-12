@@ -4,7 +4,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
 import React, {useState, useEffect} from 'react';
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity, DevSettings } from 'react-native';
 import { Formik } from 'formik';
 import { Button, Snackbar, Surface, Text, Headline } from 'react-native-paper';
 import { TextInput } from 'react-native-paper';
@@ -44,9 +44,7 @@ const Login = ({navigation}) => {
      function loginHandler () {
             navigation.navigate('Home');
           }
-    useEffect(() => {
-        //loginHandler()	
-        },[token])
+    
         return (
             <>
             <Formik
@@ -133,7 +131,8 @@ const Login = ({navigation}) => {
                redirect: 'follow',
                };
                fetch("http://ipdprojectchadi.pythonanywhere.com/login/", requestOptions)
-                .then(response => response.json())
+                .then(response => response.json()
+                                   )
                 .then(result => {console.log(result.token)
                                  console.log('its working!')
                                  setShowSuccess(true);
@@ -153,10 +152,11 @@ const Login = ({navigation}) => {
                                   }
                                   getData()
                                   //setRedirect(true);
-                                  
                                   //RNRestart.Restart();
                                   //navigation.navigate('Home')
-                                  //DevSettings.reload()
+                                  setTimeout(() => {
+                                    DevSettings.reload();
+                                    }, 2000)
                                  //const tokenValue = AsyncStorage.getItem('@token')
                                  //console.log(AsyncStorage.getItem('@token'))
                                  })

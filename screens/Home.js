@@ -22,6 +22,8 @@ import { Button, Snackbar } from 'react-native-paper';
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import AudioLibrary from './AudioLibrary';
+import NavBar from '../components/NavBar';
+
 const Stack = createNativeStackNavigator();
 
 const Home = ({navigation}) => {
@@ -40,19 +42,19 @@ const [token, setToken] = useState();
 //       }
 // }
 
-const logoutHandler = async(key) => {
-    try {
-        await AsyncStorage.removeItem(key);
-        console.log(true);
-        const isToken = await AsyncStorage.getItem(key)
-        console.log(isToken)
+// const logoutHandler = async(key) => {
+//     try {
+//         await AsyncStorage.removeItem(key);
+//         console.log(true);
+//         const isToken = await AsyncStorage.getItem(key)
+//         console.log(isToken)
         
-    }
-    catch(exception) {
-        console.log(false);
-    }
-    DevSettings.reload()
-}
+//     }
+//     catch(exception) {
+//         console.log(false);
+//     }
+//     DevSettings.reload()
+// }
 
 function medsHandler () {
     navigation.navigate('Add Meds');
@@ -64,17 +66,15 @@ useEffect(() => {
     })
 return (
     <View style={styles.container}>
-        {/* <View style={styles.header}>
-        <Text style={styles.hText}>Heyy Sam!</Text>
-        <Image style={styles.hImg} source={require("../assets/Avatar.png")}/>
-        </View> */}
-        <View style={styles.eTabs}>
+        <NavBar txt = {false} text="hello" navigation={navigation} />
+
+        {/* <View style={styles.eTabs}>
         <Text style={styles.eText} >Events</Text>
         <Text style={styles.eText} >Appointments</Text>
         <TouchableOpacity onPress={(e)=>logoutHandler('@token')} >
         <Text style={styles.eText} >Logout</Text>
         </TouchableOpacity>
-        </View>
+        </View> */}
 
         <View style={styles.tab1}>
         <Text style={styles.tabText1}>Add an event</Text>
@@ -92,10 +92,10 @@ return (
         </View>
 
         <View style={styles.tab2}>
-        <Text style={styles.tabText2}>Update Medicines Tab</Text>
+        <Text style={styles.tabText2}>Add Medicines</Text>
         <View style={styles.tabContent}>
 
-            <Image style={styles.tabImg2} source={require("../assets/medicineIcon.png")}/>
+            <Image style={styles.tabImg2} source={require("../assets/meds.png")}/>
             
             <TouchableOpacity onPress={medsHandler}>
             <View style={styles.tabBtn2}>
@@ -106,60 +106,17 @@ return (
 
 
         </View>
-
-        {/* <View style={styles.tab3}>
-        <Text style={styles.tabText1}>Your Account</Text>
-        <View style={styles.tabContent}>
-
-            <Image style={styles.tabImg1} source={require("../assets/calendarIcon.png")}/>
-            
-            <TouchableOpacity onPress={loginHandler}>
-            <View style={styles.tabBtn1}>
-                <Text style={styles.btnText1} >Login</Text>
-            </View>
-            </TouchableOpacity>
-
-            </View>
-
-        </View> */}
-
-        {/* <View style={styles.footer}>
-            <View style={styles.fElement}>
-                <Image style={styles.fImg} source={require("../assets/Calendar.png")}/>
-                <Text >Calendar</Text>
-            </View>
-
-            <View style={styles.fElement}>
-                <Image style={styles.fImg} source={require("../assets/Home.png")}/>
-                <Text style={{color: "#FF5959"}} >Home</Text>
-            </View>
-
-            <View style={styles.fElement}>
-                <Image style={styles.fImg} source={require("../assets/Medicines.png")}/>
-                <Text>Explore</Text>
-            </View>
-        </View> */}
-        {/* <Button  
-               style={{
-                width: 170,
-                height: 50,
-                marginLeft:'auto',
-                marginRight:'auto',
-                marginTop:160,
-                backgroundColor: '#FF5959'}}
-                mode="contained" 
-                onPress={(e)=>logoutHandler('@token')} 
-               > LOGOUT </Button> */}
         
     </View>
 );
 };
 
 const styles = StyleSheet.create({
-container: {
-    flex: 2,
-    backgroundColor: "white",
-},
+    container: {
+        backgroundColor: "white",
+        height: "100%",
+        width: "100%",
+    },
 
 header : {
     height: 70,
@@ -204,12 +161,13 @@ tabContent: {
 
 tab1: {
     top: 30,
-    height: 220,
-    width: "92%",
-    borderRadius: 7,
+    height: 240,
+    width: 310,
+    borderRadius: 20,
     padding: 20,
     alignSelf: "center",
     backgroundColor: "#F9D157",
+    opacity: 0.8,
 },
 tab3: {
     top: 60,
@@ -223,20 +181,27 @@ tab3: {
 tabText1: {
     top: 10,
     fontSize: 28,
-    fontWeight: "600",
+    fontWeight: "400",
 },
 
 tabBtn1: {
-    top: 50,
+    top: 60,
     left: 50,
-    width: 120,
+    width: 100,
     height: 50,
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 3,
-    borderColor: "#FF5959",
     borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
 },
 
 btnText1: {
@@ -244,73 +209,60 @@ btnText1: {
 },
 
 tabImg1: {
-    top: 20,
+    top: 30,
     height: 90,
-    left: -10,
+    left: -20,
 },
 
 
 tab2: {
     top: 60,
-    height: 220,
-    width: "92%",
-    borderRadius: 7,
+    height: 240,
+    width: 310,
+    borderRadius: 20,
     padding: 20,
     alignSelf: "center",
     backgroundColor: "#FF5959",
     marginBottom: 20,
+    opacity: 0.8,
 },
 
 tabText2: {
     top: 10,
     fontSize: 28,
-    fontWeight: "600",
+    fontWeight: "400",
 },
 
 tabBtn2: {
-    top: 50,
-    left: 30,
-    width: 120,
+    top: 60,
+    left: 35,
+    width: 100,
+    height: 50,
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 3,
-    borderColor: "#F9D157",
     borderRadius: 20,
     padding: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
 },
 
 tabImg2: {
-    top: 20,
+    top: 30,
     height: 90,
-    left: -10,
+    left: -20,
 },
 
 btnText2: {
-    fontSize: 18,
+    fontSize: 16,
 },
-
-
-footer: {
-    top: 80,
-    height: 90,
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 18,
-    justifyContent: "space-between",
-    borderTopWidth: 2,
-    borderTopColor: "#E5E5E5",
-},
-
-fElement: {
-    color: "red",
-    alignItems: "center",
-},
-
-fImg: {
-    marginBottom: 10,
-},
-
 });
 
 export default Home;

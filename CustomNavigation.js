@@ -12,6 +12,14 @@ import AddMeds from './screens/AddMeds';
 import AudioLibrary from './screens/AudioLibrary';
 import VideoLibrary from './screens/VideoLibrary';
 import ScannerCam from "./screens/ScannerCam";
+import SideMenu from "./components/SideMenu";
+import ERcall from "./components/ERcall";
+import Profile from "./screens/Profile";
+import MedTab from "./screens/MedTab";
+import Med_details from "./screens/Med_details";
+import DrawerContent from "./screens/DrawerContent";
+
+
 //Bottom Tab Main Screens
 import Home from './screens/Home';
 import ReadingGlasses from "./screens/ReadingGlasses";
@@ -24,10 +32,27 @@ const Stack = createStackNavigator();  // creates object for Stack Navigator
 const ScreenNavigator1 = () => {
     // contains all child component screens within a stack. 
   return (
-    <Stack.Navigator>    
+    <Stack.Navigator screenOptions={{
+      headerShown:false}}>    
        <Stack.Screen
         name="Home"
         component={Home}
+      />
+      <Stack.Screen
+        name="SideMenu"
+        component={SideMenu}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+      />
+      <Stack.Screen
+        name="MedTab"
+        component={MedTab}
+      />
+      <Stack.Screen
+        name="Med_details"
+        component={Med_details}
       />
        <Stack.Screen
         name="Events"

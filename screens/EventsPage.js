@@ -4,7 +4,8 @@
 /* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import NavBar from '../components/NavBar';
 
 const EventsPage = ({navigation}) => {
 
@@ -19,6 +20,11 @@ const EventsPage = ({navigation}) => {
 
     return (
         <View style={styles.ePage}>
+            <NavBar  navigation={navigation} />
+            <Image style={styles.Img} source={require("../assets/events_illus.png")}/>
+            <Text style={styles.eText} >What type of event do you</Text>
+            <Text style={styles.eText} >wish to add?</Text>
+
             <TouchableOpacity style={styles.container1} onPress={apptHandler}>
                 <Text style={styles.cText1} >
                     Medical Appointment
@@ -38,44 +44,54 @@ const EventsPage = ({navigation}) => {
 const styles = StyleSheet.create({
     ePage: {
         flex: 1,
-        backgroundColor: "#F9D157",
-    },
-    container1: {
-        top: 50,
-        height: 200,
-        width: 200,
-        borderWidth: 8,
-        alignSelf: "center",
-        borderColor: "#FF5959",
-        borderRadius: 100,
-        alignItems: "center",
-        justifyContent: "center",
         backgroundColor: "white",
     },
 
+    Img: {
+        alignSelf: "center",
+        height: 200,
+        top: 20,
+    },
+
+    eText: {
+        fontSize: 22,
+        fontWeight: "600",
+        alignSelf: "center",
+        top: 20,
+    },
+
+    container1: {
+        top: 80,
+        height: 60,
+        width: 280,
+        alignSelf: "center",
+        borderRadius: 8,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#f9d157",
+    },
+
     cText1: {
-        fontSize: 24,
-        fontWeight: "700",
+        fontSize: 22,
+        fontWeight: "400",
         textAlign: "center",
     },
 
 
     container2: {
-        top: 90,
-        height: 200,
-        width: 200,
-        borderWidth: 8,
+        top: 100,
+        height: 60,
+        width: 280,
         alignSelf: "center",
-        borderColor: "#FF5959",
-        borderRadius: 100,
+        borderRadius: 8,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "white",
+        backgroundColor: "#f9d157",
     },
 
     cText2: {
-        fontSize: 24,
-        fontWeight: "700",
+        fontSize: 22,
+        fontWeight: "400",
         textAlign: "center",
     },
 

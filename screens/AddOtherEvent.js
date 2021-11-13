@@ -5,114 +5,147 @@
 /* eslint-disable no-trailing-spaces */
 import React, {useState} from 'react';
 import { Text, View, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
+import NavBar from '../components/NavBar';
+import axios from 'axios';
+import DatePicker from 'react-native-date-picker';
 
 const AddOtherEvent = ({navigation}) => {
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
+    const [date, setDate] = useState(new Date());
+    // const [time, setTime] = useState();
     const [eName, setEName] = useState("");
     const [addNote, setAddNote] = useState("");
+    const [open, setOpen] = useState(false);
+    // const [open1, setOpen1] = useState(false);
 
-    function homeHandler () {
-        navigation.navigate('Home');
+
+    async function handleOtherEvent() {
+        const oEventData = {
+            event_name: eName,
+            event_date: JSON.stringify(date).substring(1, 11),
+            additional_fields: addNote,
+            time: JSON.stringify(date).substring(12, 23),
+        };
+        console.log(oEventData);
+
+        let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+
+        await axios.post('http://ipdprojectchadi.pythonanywhere.com/other/', oEventData, {
+            headers: {
+                'Authorization': `Token ${token}` ,
+            },
+        })
+            .then(console.log("success"))
+            .catch(err => console.log(err));
+
+
+        setAddNote("");
+        setEName("");
     }
+
+   
     
-        return (
-            <View style={styles.container}>
-                <Text style={styles.title}>Event Details</Text>
-                <View style={styles.content}>
-                    <Text style={styles.inpText}>Name</Text>
-                    <TextInput style={styles.input} onChange={(e) => setEName(e.target.value)} value={eName}/>
+    return (
+        <View style={styles.container}>
+            
+            <NavBar txt={true} text={"Event Details"} navigation={navigation}/>
+            <View style={styles.content}>
 
+                <TouchableOpacity style={styles.datBtn1} onPress={() => setOpen(true)}><Text style={{"color": "white", "fontSize": 18}} >Pick the date and time</Text></TouchableOpacity>
+                <DatePicker modal open={open} date={date} mode="datetime" onConfirm={(date) => {setOpen(false); setDate(date); }}  onCancel={() => {setOpen(false);}} />
+
+    {/* 
                     <Text style={styles.inpText}>Date</Text>
-                    <TextInput style={styles.input} onChange={(e) => setDate(e.target.value)} value={date}/>
+                    <TextInput style={styles.input} onChange={(e) => setDate(e.target.value)} value={date}/> */}
 
-                    <Text style={styles.inpText}>Time</Text>
-                    <TextInput style={styles.input} onChange={(e) => setTime(e.target.value)} value={time}/>
 
-                    
-                    <Text style={styles.inpText}>Additional Note</Text>
-                    <TextInput style={styles.input} onChange={(e) => setAddNote(e.target.value)} value={addNote}/>
+               
 
-                </View>
+                {/* <Text style={styles.inpText}>Time</Text>
+                <TextInput style={styles.input} onChange={(e) => setTime(e.target.value)} value={time}/> */}
 
-                <TouchableOpacity >
-                    <View style={styles.btn}>
-                        <Text style={styles.btnText}>ADD</Text>
-                    </View>
-                    
-                </TouchableOpacity>
+                <Text style={styles.inpText}>Event Name</Text>
+                <TextInput style={styles.input} onChangeText={(text) => setEName(text)} value={eName}/>
+
+                
+               
+
+                <Text style={styles.inpText}>Additional Note</Text>
+                <TextInput style={styles.input} onChangeText={(text) => setAddNote(text)} value={addNote}/>
 
             </View>
-        );
-    
+
+            <TouchableOpacity onPress={handleOtherEvent} style={styles.btn}>
+                <Text style={styles.btnText}>ADD</Text>              
+                
+            </TouchableOpacity>
+
+            
+        </View>
+    );
+
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#F9D157",
-    },
-    title: {
-        height:100,
-        alignSelf: "center",
-        fontSize: 24,
-        fontWeight: "600",
-        textAlignVertical: "center",
-    },
+container: {
+    flex: 1,
+    backgroundColor: "white",
+},
 
-    inpText: {
-        fontSize: 18,
-        left: 30,
-        fontWeight: "500",
-        marginBottom: 5,
-    },
+datBtn1: {
+    backgroundColor: "#F9D157",
+    alignSelf: "center",
+    height: 50,
+    width: "80%",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 20,
+},
 
-    input: {
-        height: 50,
-        backgroundColor: "white",
-        width: "80%",
-        left: 30,
-        marginBottom: 20,
-        borderRadius: 5,
-        color: "black",
-    },
+content: {
+    top: 50,
+},
 
-    btn: {
-        height: 40,
-        width: 90,
-        backgroundColor: "#FF5959",
-        alignSelf: "center",
-        alignItems: "center",
-        justifyContent: "center",
-    },
+inpText: {
+    fontSize: 18,
+    left: 40,
+    fontWeight: "400",
+    marginBottom: 5,
+},
 
-    btnText: {
-        color: "white",
-        fontSize: 18,
-        fontWeight: "600",
-    },
+input: {
+    height: 50,
+    backgroundColor: "white",
+    width: "80%",
+    alignSelf: "center",
+    marginBottom: 20,
+    borderRadius: 5,
+    color: "black",
+    borderWidth: 2,
+    borderColor: "#F9D157",
+},
 
-    footer: {
-        top: 25,
-        height: 90,
-        flexDirection: "row",
-        alignItems: "center",
-        padding: 18,
-        justifyContent: "space-between",
-        borderTopWidth: 2,
-        borderTopColor: "#E5E5E5",
-        backgroundColor: "white",
-    },
-    
-    fElement: {
-        color: "red",
-        alignItems: "center",
-    },
-    
-    fImg: {
-        marginBottom: 10,
-    },
+btn: {
+    top: 80,
+    height: 60,
+    width: 290,
+    backgroundColor: "#FF5959",
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+},
+
+btnText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "600",
+},
+
+
 
 });
+
+
 
 export default AddOtherEvent;

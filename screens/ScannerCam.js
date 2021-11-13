@@ -185,7 +185,7 @@ const ScannerCam = ({initialProps}) => {
                      <>
                      <Text style={styles.subheader}>Source Image:</Text>
                      <Image source={imgSrc}
-                     style={{width:290,height:250,marginRight:'auto',marginLeft:'auto',marginBottom:'auto',marginVertical: 15,
+                     style={{width:290,height:220,marginRight:'auto',marginLeft:'auto',marginBottom:'auto',marginVertical: 15,
                      borderWidth:7,borderColor:'#ff5959',borderRadius:5}}/>
                      <Text style={styles.subheader2}>Detected Text:</Text>
                      <Surface style={styles.detectedTxt}>
@@ -197,8 +197,8 @@ const ScannerCam = ({initialProps}) => {
                      </Surface>
                      <Surface
                     style={{
-                    width: 160,
-                    height: 66,
+                    width: 180,
+                    height: 70,
                     color:'white',
                     marginLeft:'auto',
                     marginRight:'auto',
@@ -208,7 +208,7 @@ const ScannerCam = ({initialProps}) => {
                     elevation:5,
                     borderRadius:40}}>
                       <TouchableOpacity onPress={()=>_onPressSpeech(text)}>
-                        <Text style={styles.btnText}>Read-Aloud </Text>
+                        <Text style={styles.btnText}>Read-Aloud <Image source={require("../assets/volume.png")} resizeMode='contain' style={{width:26,height:26}}/> </Text>
                       </TouchableOpacity>
                     </Surface>
                      </>
@@ -279,9 +279,9 @@ const styles = StyleSheet.create({
     },
     detectedTxt:{
       width:330,
-      height:170,
+      height:210,
       left:26,
-      bottom:45,
+      bottom:40,
       backgroundColor:'white',
       borderRadius:8
     },
@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
           fontSize: 18,
           fontWeight: "bold",
           fontFamily:'Roboto',
-          top:-53
+          top:-42
         },
     buttonStyle:{backgroundColor:"#FF5959",padding:10,width:120,height:40,
     marginLeft:'auto',

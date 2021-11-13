@@ -5,110 +5,133 @@
 /* eslint-disable no-trailing-spaces */
 import React, {useState} from 'react';
 import { Text, View, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
+import NavBar from '../components/NavBar';
+import DatePicker from 'react-native-date-picker';
+import axios from 'axios';
 
 const AddAppointments = ({navigation}) => {
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
+    const [date, setDate] = useState(new Date());
+    //const [time, setTime] = useState("");
     const [docName, setDocName] = useState("");
     const [addNote, setAddNote] = useState("");
+    const [open, setOpen] = useState(false);
 
-    function homeHandler () {
-        navigation.navigate('Home');
+    
+    const [err, setErr] = useState('');
+
+    async function handleAppt() {
+        const apptData = {
+            date: JSON.stringify(date).substring(1, 11),
+            doc_name: docName,
+            additional_fields: addNote,
+            time: JSON.stringify(date).substring(12, 23),
+        };
+        let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+
+        await axios.post('http://ipdprojectchadi.pythonanywhere.com/appt/', apptData, {
+            headers: {
+                'Authorization': `Token ${token}` ,
+            },
+            })
+             .then(console.log("success"))
+             .catch(err => setErr(err));
+        
+        setDocName('');
+        setAddNote('');
+
+        console.log(err);
+
     }
-    
-        return (
-            <View style={styles.container}>
-                <Text style={styles.title}>Appointment Details</Text>
-                <View style={styles.content}>
-                    <Text style={styles.inpText}>Date</Text>
-                    <TextInput style={styles.input} onChange={(e) => setDate(e.target.value)} value={date}/>
 
-                    <Text style={styles.inpText}>Time</Text>
-                    <TextInput style={styles.input} onChange={(e) => setTime(e.target.value)} value={time}/>
+    return (
+        <View style={styles.container}>
+            
+            <NavBar txt={true} text={"Appointment Details"} navigation={navigation}/>
+            <View style={styles.content}>
+                <Text style={styles.inpText}>Date</Text>
+                <TouchableOpacity style={styles.datBtn1} onPress={() => setOpen(true)}><Text style={{"color": "white", "fontSize": 18}} >Pick the date and time</Text></TouchableOpacity>
+                <DatePicker modal open={open} date={date} mode="datetime" onConfirm={(date) => {setOpen(false); setDate(date); }}  onCancel={() => {setOpen(false);}} />
 
-                    <Text style={styles.inpText}>Doctor's Name</Text>
-                    <TextInput style={styles.input} onChange={(e) => setDocName(e.target.value)} value={docName}/>
+                {/* <Text style={styles.inpText}>Time</Text>
+                <TextInput style={styles.input} onChange={(e) => setTime(e.target.value)} value={time}/> */}
 
-                    <Text style={styles.inpText}>Additional Note</Text>
-                    <TextInput style={styles.input} onChange={(e) => setAddNote(e.target.value)} value={addNote}/>
+                <Text style={styles.inpText}>Doctor's Name</Text>
+                <TextInput style={styles.input} value={docName} onChangeText={text => setDocName(text)} />
 
-                </View>
+                <Text style={styles.inpText}>Additional Note</Text>
+                <TextInput style={styles.input} value={addNote} onChangeText={text => setAddNote(text)}/>
 
-                <TouchableOpacity >
-                    <View style={styles.btn}>
-                        <Text style={styles.btnText}>ADD</Text>
-                    </View>
-                    
-                </TouchableOpacity></View>
-        );
-    
+                {/* report and medical record input */}
+            </View>
+
+            <TouchableOpacity onPress={handleAppt} style={styles.btn}>                    
+                <Text style={styles.btnText}>ADD</Text>                    
+            </TouchableOpacity>
+
+            
+        </View>
+    );
+
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#F9D157",
-    },
-    title: {
-        height:100,
-        alignSelf: "center",
-        fontSize: 24,
-        fontWeight: "600",
-        textAlignVertical: "center",
-    },
+container: {
+    flex: 1,
+    backgroundColor: "white",
+},
 
-    inpText: {
-        fontSize: 18,
-        left: 30,
-        fontWeight: "500",
-        marginBottom: 5,
-    },
+content: {
+    top: 50,
+},
 
-    input: {
-        height: 50,
-        backgroundColor: "white",
-        width: "80%",
-        left: 30,
-        marginBottom: 20,
-        borderRadius: 5,
-        color: "black",
-    },
+datBtn1: {
+    backgroundColor: "#F9D157",
+    alignSelf: "center",
+    height: 50,
+    width: "80%",
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 20,
+},
 
-    btn: {
-        height: 40,
-        width: 90,
-        backgroundColor: "#FF5959",
-        alignSelf: "center",
-        alignItems: "center",
-        justifyContent: "center",
-    },
+inpText: {
+    fontSize: 18,
+    left: 40,
+    fontWeight: "400",
+    marginBottom: 5,
+},
 
-    btnText: {
-        color: "white",
-        fontSize: 18,
-        fontWeight: "600",
-    },
+input: {
+    height: 50,
+    backgroundColor: "white",
+    width: "80%",
+    alignSelf: "center",
+    marginBottom: 20,
+    borderRadius: 5,
+    color: "black",
+    borderWidth: 2,
+    borderColor: "#F9D157",
+},
 
-    footer: {
-        top: 25,
-        height: 90,
-        flexDirection: "row",
-        alignItems: "center",
-        padding: 18,
-        justifyContent: "space-between",
-        borderTopWidth: 2,
-        borderTopColor: "#E5E5E5",
-        backgroundColor: "white",
-    },
-    
-    fElement: {
-        color: "red",
-        alignItems: "center",
-    },
-    
-    fImg: {
-        marginBottom: 10,
-    },
+btn: {
+    top: 80,
+    height: 60,
+    width: 290,
+    backgroundColor: "#FF5959",
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+},
+
+btnText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "600",
+},
+
+
 
 });
 

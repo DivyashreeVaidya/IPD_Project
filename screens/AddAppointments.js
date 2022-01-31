@@ -8,6 +8,7 @@ import { Text, View, StyleSheet, TextInput, Image, TouchableOpacity } from 'reac
 import NavBar from '../components/NavBar';
 import DatePicker from 'react-native-date-picker';
 import axios from 'axios';
+import PushNotification from 'react-native-push-notification';
 
 const AddAppointments = ({navigation}) => {
     const [date, setDate] = useState(new Date());
@@ -34,7 +35,7 @@ const AddAppointments = ({navigation}) => {
             },
             })
              .then(console.log("success"))
-             .catch(err => setErr(err));
+             .catch(error => setErr(error));
         
         setDocName('');
         setAddNote('');
@@ -42,6 +43,16 @@ const AddAppointments = ({navigation}) => {
         console.log(err);
 
     }
+
+    const handleNotifications = () => {
+
+
+        PushNotification.localNotification({
+            channelId: "test-channel",
+            title: "You have an appointment today with",
+            message: docName + " at " + JSON.stringify(date).substring(12, 23),
+        });
+    };
 
     return (
         <View style={styles.container}>
@@ -64,7 +75,7 @@ const AddAppointments = ({navigation}) => {
                 {/* report and medical record input */}
             </View>
 
-            <TouchableOpacity onPress={handleAppt} style={styles.btn}>                    
+            <TouchableOpacity onPress={() => {handleAppt(); handleNotifications();}} style={styles.btn}>                    
                 <Text style={styles.btnText}>ADD</Text>                    
             </TouchableOpacity>
 

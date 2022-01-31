@@ -8,26 +8,41 @@ import { View, StyleSheet, Image, TouchableOpacity, DevSettings } from 'react-na
 import { Formik } from 'formik';
 import { Button, Snackbar, Surface, Text, Headline } from 'react-native-paper';
 import { TextInput } from 'react-native-paper';
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+// import {NavigationContainer} from "@react-navigation/native";
+// import {createNativeStackNavigator} from "@react-navigation/native-stack";
 //import RNRestart from 'react-native-restart'; // Import package from node modules
 //import Home from './Home';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 //API fetching
-import axios from 'axios';
+// import axios from 'axios';
+import PushNotification from 'react-native-push-notification';
+
+
+
+
 const Login = ({navigation}) => {
+
+
+  useEffect(() => {
+    createChannels();
+  }, []);
+  
+
+
     function registerHandler () {
         navigation.navigate('Register');
     }
+
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
-	const [showPassword, setShowPassword] = useState(0); //Toggle show password field
+    const [showPassword, setShowPassword] = useState(0); //Toggle show password field
     const [showPassword1, setShowPassword1] = useState(0); //Toggle show password field
     const [errorMessage, setErrorMessage] = useState('');
-	const [token, setToken] = useState('');
-	//setToken(sessionStorage.getItem('token'))
-	//const { currentTheme } = useContext(CustomThemeContext) // For theme
+	  const [token, setToken] = useState('');
+    //setToken(sessionStorage.getItem('token'))
+    //const { currentTheme } = useContext(CustomThemeContext) // For theme
 
 	function togglePassword() {
 		showPassword === 0 ? setShowPassword(1) : setShowPassword(0);
@@ -35,12 +50,23 @@ const Login = ({navigation}) => {
     function togglePassword1() {
 		showPassword1 === 0 ? setShowPassword1(1) : setShowPassword1(0);
 	}
-	const [showWarning, setShowWarning] = useState(false);
+	  
+    const [showWarning, setShowWarning] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const [redirect, setRedirect] = useState(false)
     // function homeHandler () {
     //     navigation.navigate('Home');
     // }
+
+
+    const createChannels = () => {
+      PushNotification.createChannel({
+        channelId: "test-channel",
+        channelName: "Test Channel",
+      });
+    };
+
+
      function loginHandler () {
             navigation.navigate('Home');
           }

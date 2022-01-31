@@ -46,12 +46,25 @@ const AddAppointments = ({navigation}) => {
 
     const handleNotifications = () => {
 
+        // console.log(date.getTime());
 
-        PushNotification.localNotification({
+        // PushNotification.localNotification({
+        //     channelId: "test-channel",
+        //     title: "You have an appointment today with",
+        //     message: docName + " at " + JSON.stringify(date).substring(12, 23),
+        // });
+
+        PushNotification.localNotificationSchedule({
             channelId: "test-channel",
-            title: "You have an appointment today with",
-            message: docName + " at " + JSON.stringify(date).substring(12, 23),
+            title: "Appointment",
+            message: "You have an upcoming appointment with " + docName + " on " + JSON.stringify(date).substring(1, 11),
+            // date: new Date(date.getMilliseconds() - (new Date()).getMilliseconds()),
+            date: new Date(date.getMilliseconds() - 20 * 1000),
+            // 864 * 100000,
+            allowWhileIdle: true,
         });
+
+
     };
 
     return (

@@ -54,13 +54,16 @@ const AddAppointments = ({navigation}) => {
         //     message: docName + " at " + JSON.stringify(date).substring(12, 23),
         // });
 
+        var d1 = new Date();
+        d1.setTime(date.getTime() - 24 * 60 * 60 * 1000);
+        // console.log(d1.toLocaleString());
+
         PushNotification.localNotificationSchedule({
             channelId: "test-channel",
             title: "Appointment",
             message: "You have an upcoming appointment with " + docName + " on " + JSON.stringify(date).substring(1, 11),
             // date: new Date(date.getMilliseconds() - (new Date()).getMilliseconds()),
-            date: new Date(date.getMilliseconds() - 20 * 1000),
-            // 864 * 100000,
+            date: d1,
             allowWhileIdle: true,
         });
 

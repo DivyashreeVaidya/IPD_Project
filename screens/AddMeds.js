@@ -4,9 +4,10 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
 import React, {useState} from 'react';
-import { ScrollView, Text, View, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
+import PushNotification from 'react-native-push-notification';
 
 const AddMeds = ({navigation}) => {
     const [reason, setReason] = useState("");
@@ -30,7 +31,6 @@ const AddMeds = ({navigation}) => {
             additional_fields: addNote,
         };
 
-        console.log(medData);
 
         let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
 
@@ -50,7 +50,54 @@ const AddMeds = ({navigation}) => {
         setReason('');
         setDura('');
     }
+    
 
+    const handleReminder = () => {
+        var d = new Date(Date.now());
+        var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        var nd = new Date(utc + (3600000 * +5.5));
+        var d1 = new Date();
+        d1.setTime(nd.getTime() + 24 * 60 * 60 * 1000);
+        
+
+        if (parseInt(morndose, 10) > 0) {
+            d1.setHours(8, 1, 1);
+            PushNotification.localNotificationSchedule({
+                channelId: "test-channel",
+                title: "Appointment",
+                message: name + " dose: " + parseInt(morndose, 10),
+                date: d1,
+                allowWhileIdle: true,
+                repeatType: "day",
+            });
+        }
+
+        if (parseInt(noondose, 10) > 0) {
+            d1.setHours(1, 1, 1);
+            PushNotification.localNotificationSchedule({
+                channelId: "test-channel",
+                title: "Appointment",
+                message: name + " dose: " + parseInt(noondose, 10),
+                date: d1,
+                allowWhileIdle: true,
+                repeatType: "day",
+            });
+        }
+
+        if (parseInt(evedose, 10) > 0) {
+            d1.setHours(6, 1, 1);
+            PushNotification.localNotificationSchedule({
+                channelId: "test-channel",
+                title: "Appointment",
+                message: name + " dose: " + parseInt(evedose, 10),
+                date: d1,
+                allowWhileIdle: true,
+                repeatType: "day",
+            });
+        }
+
+
+    };
     
     
     return (
@@ -81,7 +128,7 @@ const AddMeds = ({navigation}) => {
                 <Text style={styles.inpText}>Additional Note</Text>
                 <TextInput style={styles.input} onChangeText={text => setAddNote(text)} value={addNote}/>
 
-                <TouchableOpacity onPress={handleAddMeds} style={styles.btn}>                
+                <TouchableOpacity onPress={() => {handleAddMeds(); handleReminder();}} style={styles.btn}>                
                     <Text style={styles.btnText}>ADD</Text>                         
                 </TouchableOpacity>
 

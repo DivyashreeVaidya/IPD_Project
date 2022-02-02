@@ -8,6 +8,7 @@ import { Text, View, StyleSheet, TextInput, Image, TouchableOpacity } from 'reac
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import DatePicker from 'react-native-date-picker';
+import PushNotification from 'react-native-push-notification';
 
 const AddOtherEvent = ({navigation}) => {
     const [date, setDate] = useState(new Date());
@@ -42,7 +43,31 @@ const AddOtherEvent = ({navigation}) => {
         setEName("");
     }
 
-   
+    const handleNotifications = () => {
+
+        // console.log(date.getTime());
+
+        // PushNotification.localNotification({
+        //     channelId: "test-channel",
+        //     title: "You have an appointment today with",
+        //     message: docName + " at " + JSON.stringify(date).substring(12, 23),
+        // });
+
+        var d1 = new Date();
+        d1.setTime(date.getTime() - 24 * 60 * 60 * 1000);
+        // console.log(d1.toLocaleString());
+
+        PushNotification.localNotificationSchedule({
+            channelId: "test-channel",
+            title: "Appointment",
+            message: "You have an upcoming event \"" + eName + "\" on " + JSON.stringify(date).substring(1, 11),
+            // date: new Date(date.getMilliseconds() - (new Date()).getMilliseconds()),
+            date: d1,
+            allowWhileIdle: true,
+        });
+
+
+    };
     
     return (
         <View style={styles.container}>
@@ -74,7 +99,7 @@ const AddOtherEvent = ({navigation}) => {
 
             </View>
 
-            <TouchableOpacity onPress={handleOtherEvent} style={styles.btn}>
+            <TouchableOpacity onPress={() => {handleOtherEvent(); handleNotifications();}} style={styles.btn}>
                 <Text style={styles.btnText}>ADD</Text>              
                 
             </TouchableOpacity>

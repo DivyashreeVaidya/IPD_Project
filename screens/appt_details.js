@@ -12,40 +12,32 @@ import {
 
 //import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
-// import {NavigationContainer} from "@react-navigation/native";
-// import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
   
-const Med_details = (props) => {
+const appt_details = (props) => {
 
     const backHandler = () => {
-        props.navigation.navigate('MedTab');
+        props.navigation.navigate('ApptTab');
     };
 
     return (
         <View style={styles.container}>
             
-            <NavBar txt = {true} text="Medicine Details" navigation={props.navigation} />
+            <NavBar txt = {true} text="Appointment Details" navigation={props.navigation} />
 
             <View style={styles.content}>
                 <View style={styles.tab1}>
-                    <Text style={styles.info}>Name</Text>
-                    <Text style={styles.title}>{props.route.params.med_name}</Text>
+                    <Text style={styles.info}>Doctor</Text>
+                    <Text style={styles.title}>{props.route.params.doc_name}</Text>
 
-                    <Text style={styles.info}>Morning Dose</Text>
-                    <Text style={styles.title}>{props.route.params.morning_dose}</Text>
+                    <Text style={styles.info}>Date</Text>
+                    <Text style={styles.title}>{JSON.stringify(props.route.params.date).substring(1, 11)}</Text>
 
-                    <Text style={styles.info}>Afternoon Dose</Text>
-                    <Text style={styles.title}>{props.route.params.noon_dose}</Text>
+                    <Text style={styles.info}>Time</Text>
+                    <Text style={styles.title}>{JSON.stringify(props.route.params.date).substring(12, 23)}</Text>
 
-                    <Text style={styles.info}>Evening Dose</Text>
-                    <Text style={styles.title}>{props.route.params.evening_dose}</Text>
-
-                    <Text style={styles.info}>Reason</Text>
-                    <Text style={styles.title}>{props.route.params.reason}</Text>
-                    
-                    <Text style={styles.info}>Duration</Text>
-                    <Text style={styles.title}>{props.route.params.routine}</Text>
+                    <Text style={styles.info}>Additional Note</Text>
+                    <Text style={styles.title}>{props.route.params.additional_fields}</Text>
                     
                 </View>
 
@@ -126,4 +118,4 @@ btnText1: {
 
 });
 
-export default Med_details;
+export default appt_details;

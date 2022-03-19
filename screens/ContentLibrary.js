@@ -1,10 +1,13 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable semi */
-/* eslint-disable prettier/prettier */
 /* eslint-disable quotes */
-/* eslint-disable prettier/prettier */
+
+
+
 import React from 'react';
-import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, Text, View, StyleSheet } from 'react-native';
 import { Button, Headline } from 'react-native-paper';
 
 const ContentLibrary = ({navigation}) => {
@@ -26,11 +29,14 @@ const ContentLibrary = ({navigation}) => {
                style={{backgroundColor:"#FF5959",padding:10,width:300,height:65,
                marginLeft:'auto',
                marginRight:'auto', marginBottom:0}}
-               mode="contained">
+               mode="contained"
+               onPress={videoHandler}>
                <Text style={styles.btnText}> 
                WATCH 
                </Text>
                </Button>
+
+               
                <Button  
                style={{backgroundColor:"#FF5959",padding:10,width:300,height:65,
                marginLeft:'auto',

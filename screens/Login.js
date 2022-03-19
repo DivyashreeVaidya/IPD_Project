@@ -108,8 +108,14 @@ const Login = ({navigation}) => {
                  body: JSON.stringify({'username':values.username1,'password':values.password})
               };*/
               //console.log(request.body);
-              console.log("email-"+values.email)
-              console.log("password-"+values.password)
+
+
+
+              // console.log("email-"+values.email)
+              // console.log("password-"+values.password)
+
+
+
             //   ***PREV API CALL***
             //   axios
             //   .post(" http://ipdprojectchadi.pythonanywhere.com/login", {

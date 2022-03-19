@@ -73,8 +73,14 @@ const AddAppointments = ({navigation}) => {
     return (
         <View style={styles.container}>
             
-            <NavBar txt={true} text={"Appointment Details"} navigation={navigation}/>
+            <NavBar txt={true} text={"Appointment Details"} navigation={navigation} color={"yellow"}/>
+
+            <View style={styles.formbg}>
+                    <Image source={require("../assets/form-bg.png")}/>
+            </View>
+
             <View style={styles.content}>
+                
                 <Text style={styles.inpText}>Date</Text>
                 <TouchableOpacity style={styles.datBtn1} onPress={() => setOpen(true)}><Text style={{"color": "white", "fontSize": 18}} >Pick the date and time</Text></TouchableOpacity>
                 <DatePicker modal open={open} date={date} mode="datetime" onConfirm={(date) => {setOpen(false); setDate(date); }}  onCancel={() => {setOpen(false);}} />
@@ -89,11 +95,13 @@ const AddAppointments = ({navigation}) => {
                 <TextInput style={styles.input} value={addNote} onChangeText={text => setAddNote(text)}/>
 
                 {/* report and medical record input */}
+
+                <TouchableOpacity onPress={() => {handleAppt(); handleNotifications();}} style={styles.btn}>                    
+                    <Text style={styles.btnText}>ADD</Text>                    
+                </TouchableOpacity>
             </View>
 
-            <TouchableOpacity onPress={() => {handleAppt(); handleNotifications();}} style={styles.btn}>                    
-                <Text style={styles.btnText}>ADD</Text>                    
-            </TouchableOpacity>
+            
 
             
         </View>
@@ -107,15 +115,36 @@ container: {
     backgroundColor: "white",
 },
 
+formbg: {
+    position: 'absolute',
+    top:70,
+},
+
 content: {
-    top: 50,
+    top: 40,
+    elevation: 10,
+    height: 480,
+    backgroundColor: "white",
+    paddingTop: 40,
+    alignSelf: "center",
+    width: 300,
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
 },
 
 datBtn1: {
     backgroundColor: "#F9D157",
     alignSelf: "center",
     height: 50,
-    width: "80%",
+    width: "90%",
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
@@ -124,7 +153,7 @@ datBtn1: {
 
 inpText: {
     fontSize: 18,
-    left: 40,
+    left: 20,
     fontWeight: "400",
     marginBottom: 5,
 },
@@ -132,24 +161,24 @@ inpText: {
 input: {
     height: 50,
     backgroundColor: "white",
-    width: "80%",
+    width: "90%",
     alignSelf: "center",
     marginBottom: 20,
     borderRadius: 5,
     color: "black",
-    borderWidth: 2,
-    borderColor: "#F9D157",
+    borderWidth: 1,
+    borderColor: "grey",
 },
 
 btn: {
-    top: 80,
+    top: 30,
     height: 60,
-    width: 290,
+    width: 250,
     backgroundColor: "#FF5959",
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 30,
 },
 
 btnText: {

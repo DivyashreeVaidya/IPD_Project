@@ -91,15 +91,6 @@ const MedTab = ({navigation}) => {
 
                         })}
 
-                    {/* <TouchableOpacity style={styles.med}>
-                        <Text style={styles.medName}>Med Name</Text>
-                        <Text style={styles.reason}>Reason</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.med}>
-                        <Text style={styles.medName}>Med Name</Text>
-                        <Text style={styles.reason}>Reason</Text>
-                    </TouchableOpacity> */}
                 </View>
 
                 <View style={styles.content}>
@@ -122,15 +113,6 @@ const MedTab = ({navigation}) => {
 
                         })}
 
-                    {/* <TouchableOpacity style={styles.med}>
-                        <Text style={styles.medName}>Med Name</Text>
-                        <Text style={styles.reason}>Reason</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={styles.med}>
-                        <Text style={styles.medName}>Med Name</Text>
-                        <Text style={styles.reason}>Reason</Text>
-                    </TouchableOpacity> */}
                 </View>
 
 

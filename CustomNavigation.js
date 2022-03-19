@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable quotes */
 //CustomNavigation.js
 
 import React from "react";
@@ -17,7 +19,11 @@ import ERcall from "./components/ERcall";
 import Profile from "./screens/Profile";
 import MedTab from "./screens/MedTab";
 import Med_details from "./screens/Med_details";
-import DrawerContent from "./screens/DrawerContent";
+import ApptTab from "./screens/ApptTab";
+import appt_details from "./screens/appt_details";
+import HelpPage from './screens/HelpPage';
+import HelpSection from "./screens/HelpSection";
+// import DrawerContent from "./screens/DrawerContent";
 
 
 //Bottom Tab Main Screens
@@ -33,7 +39,7 @@ const ScreenNavigator1 = () => {
     // contains all child component screens within a stack. 
   return (
     <Stack.Navigator screenOptions={{
-      headerShown:false}}>    
+      headerShown:false}}>
        <Stack.Screen
         name="Home"
         component={Home}
@@ -54,6 +60,14 @@ const ScreenNavigator1 = () => {
         name="Med_details"
         component={Med_details}
       />
+      <Stack.Screen
+        name="ApptTab"
+        component={ApptTab}
+      />
+      <Stack.Screen
+        name="Appt_details"
+        component={appt_details}
+      />
        <Stack.Screen
         name="Events"
         component={EventsPage}
@@ -69,6 +83,15 @@ const ScreenNavigator1 = () => {
       <Stack.Screen
         name="Add Meds"
         component={AddMeds}
+      />
+      <Stack.Screen
+        name="Help Section"
+        component={HelpSection}
+      />
+
+      <Stack.Screen
+        name="Help Page"
+        component={HelpPage}
       />
     </Stack.Navigator>
   );

@@ -5,19 +5,11 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { ScrollView, Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Headline, Button, Surface } from 'react-native-paper';
 import ERcall from '../components/ERcall';
 
 const EmergencyCalls = ({navigation}) => {
 
-    function videoHandler () {
-        navigation.navigate('Video Library');
-    }
-
-    function audioHandler () {
-        navigation.navigate('Audio Library');
-    }
-
+    
 
     return (
         // <View style={styles.ePage}>
@@ -70,7 +62,7 @@ const styles = StyleSheet.create({
     ePage: {
         flex: 1,
         backgroundColor: "#F9D157",
-       
+
     },
     title: {
         textAlign:'left',
@@ -89,7 +81,7 @@ const styles = StyleSheet.create({
             fontWeight: "bold",
             fontFamily:'Roboto',
             paddingTop:7},
-            med: {
+            med1: {
                 backgroundColor: "white",
                 borderWidth: 2,
                 borderColor: "#F9D157",

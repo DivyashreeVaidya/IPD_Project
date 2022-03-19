@@ -1,28 +1,31 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable quotes */
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable semi */
+/* eslint-disable space-infix-ops */
+/* eslint-disable keyword-spacing */
+/* eslint-disable quotes */
 import React, { useState,useEffect } from 'react';
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-import Home from './screens/Home';
-import EventsPage from './screens/EventsPage';
-import AddAppointments from './screens/AddAppointments';
-import AddOtherEvent from './screens/AddOtherEvent';
-import AddMeds from './screens/AddMeds';
+// import Home from './screens/Home';
+// import EventsPage from './screens/EventsPage';
+// import AddAppointments from './screens/AddAppointments';
+// import AddOtherEvent from './screens/AddOtherEvent';
+// import AddMeds from './screens/AddMeds';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import OpeningPage from './screens/OpeningPage';
-import BottomNavigation  from './screens/BottomNavigation';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import CalendarPage from './screens/CalendarPage';
-import ContentLibrary from './screens/ContentLibrary';
-import AudioLibrary from './screens/AudioLibrary';
-import VideoLibrary from './screens/VideoLibrary';
-import ReadingGlasses from './screens/ReadingGlasses';
-import EmergencyCalls from './screens/EmergencyCalls';
 import Tabs from './navigation/tabs';
-import Stacks from './navigation/stacks';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import BottomNavigation  from './screens/BottomNavigation';
+// import CalendarPage from './screens/CalendarPage';
+// import ContentLibrary from './screens/ContentLibrary';
+// import AudioLibrary from './screens/AudioLibrary';
+// import VideoLibrary from './screens/VideoLibrary';
+// import ReadingGlasses from './screens/ReadingGlasses';
+// import EmergencyCalls from './screens/EmergencyCalls';
+// import Stacks from './navigation/stacks';
 
 const Stack = createNativeStackNavigator();
 //const token = '';

@@ -1,13 +1,15 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable quotes */
-/* eslint-disable prettier/prettier */
+
+
+
 import React, {useState, useEffect} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
 
-export default function NavBar({txt, text, navigation}) {
+export default function NavBar({txt, text, navigation, color}) {
 
     const [info, setInfo] = useState([]);
 
@@ -32,20 +34,26 @@ export default function NavBar({txt, text, navigation}) {
 
     }, []);
 
+
+    const user = {
+        name: info.username,
+        age: info.age,
+    };
+
     
     return (
         <View>
-            <View style={styles.header}>
+            <View style={color ? styles.header1 : styles.header}>
 
-                <TouchableOpacity onPress={() => navigation.navigate('SideMenu')}>
-                    <Image style={styles.menu} source={require("../assets/menu.png")}/>
+                <TouchableOpacity onPress={() => navigation.navigate('SideMenu', user)}>
+                    <Image style={styles.menu} source={require("../assets/menu-blk.png")}/>
                 </TouchableOpacity>
                 
                 {!txt ? 
                     <View style={styles.content}>
                         <Text style={styles.hText}>Heyy {info.username}!</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                            <Image style={styles.hImg} source={require("../assets/Avatar.png")}/>
+                        <TouchableOpacity onPress={() => navigation.navigate('Help Section')}>
+                            <Image style={styles.hImg} source={require("../assets/Help.png")}/>
                         </TouchableOpacity>
                     </View>
                     
@@ -69,6 +77,15 @@ const styles = StyleSheet.create({
         padding: 12,
         flexDirection: "row",
         justifyContent: "space-between",
+    },
+
+    header1 : {
+        height: 70,
+        backgroundColor: "#F9D157",
+        padding: 12,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        opacity: 0.8,
     },
 
     menu:{
@@ -99,7 +116,7 @@ const styles = StyleSheet.create({
     
     hImg: {
         alignSelf: "flex-end",
-        bottom: 14,
+        bottom: 24,
         marginRight: 10,
     },
 

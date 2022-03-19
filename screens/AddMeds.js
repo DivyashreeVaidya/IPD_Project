@@ -4,7 +4,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-trailing-spaces */
 import React, {useState} from 'react';
-import { ScrollView, Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { ScrollView, Text, View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import PushNotification from 'react-native-push-notification';
@@ -103,36 +103,45 @@ const AddMeds = ({navigation}) => {
     return (
         <View style={styles.container}>
             
-            <NavBar txt={true} text={"Medicine Details"} navigation={navigation}/>
-            <ScrollView style={styles.content}>
+            <NavBar txt={true} text={"Medicine Details"} navigation={navigation} color={"yellow"}/>
 
-                <Text style={styles.inpText}>Name</Text>
-                <TextInput style={styles.input} value={name} onChangeText={text => setName(text)}/>
+            <View style={styles.formbg}>
+                    <Image source={require("../assets/form-bg.png")}/>
+            </View>
 
-                <Text style={styles.inpText}>Morning Dose</Text>
-                <TextInput style={styles.input} value={morndose} onChangeText={text => setMornDose(text)} />
 
-                <Text style={styles.inpText}>Noon Dose</Text>
-                <TextInput style={styles.input} onChangeText={text => setNoonDose(text)} value={noondose}  />
+            <View style={styles.content}>
+                <ScrollView>
+                    <Text style={styles.inpText}>Name</Text>
+                    <TextInput style={styles.input} value={name} onChangeText={text => setName(text)}/>
 
-                <Text style={styles.inpText}>Evening Dose</Text>
-                <TextInput style={styles.input} onChangeText={text => setEveDose(text)} value={evedose}/>
+                    <Text style={styles.inpText}>Morning Dose</Text>
+                    <TextInput style={styles.input} value={morndose} onChangeText={text => setMornDose(text)} />
 
-                <Text style={styles.inpText}>Reason</Text>
-                <TextInput style={styles.input} onChangeText={text => setReason(text)} value={reason}/>
+                    <Text style={styles.inpText}>Noon Dose</Text>
+                    <TextInput style={styles.input} onChangeText={text => setNoonDose(text)} value={noondose}  />
 
-                <Text style={styles.inpText}>Duration</Text>
-                <TextInput style={styles.input} onChangeText={text => setDura(text)} value={dura}/>
+                    <Text style={styles.inpText}>Evening Dose</Text>
+                    <TextInput style={styles.input} onChangeText={text => setEveDose(text)} value={evedose}/>
+
+                    <Text style={styles.inpText}>Reason</Text>
+                    <TextInput style={styles.input} onChangeText={text => setReason(text)} value={reason}/>
+
+                    <Text style={styles.inpText}>Duration</Text>
+                    <TextInput style={styles.input} onChangeText={text => setDura(text)} value={dura}/>
+                    
+
+                    <Text style={styles.inpText}>Additional Note</Text>
+                    <TextInput style={styles.input} onChangeText={text => setAddNote(text)} value={addNote}/>
+
+                    <TouchableOpacity onPress={() => {handleAddMeds(); handleReminder();}} style={styles.btn}>                
+                        <Text style={styles.btnText}>ADD</Text>                         
+                    </TouchableOpacity>
+                </ScrollView>
+
                 
 
-                <Text style={styles.inpText}>Additional Note</Text>
-                <TextInput style={styles.input} onChangeText={text => setAddNote(text)} value={addNote}/>
-
-                <TouchableOpacity onPress={() => {handleAddMeds(); handleReminder();}} style={styles.btn}>                
-                    <Text style={styles.btnText}>ADD</Text>                         
-                </TouchableOpacity>
-
-            </ScrollView>
+            </View>
 
             
             
@@ -147,14 +156,34 @@ container: {
     backgroundColor: "white",
 },
 
+formbg: {
+    position: 'absolute',
+    top:70,
+},
+
 content: {
-    top: 10,
-    height: "100%",
+    top: 20,
+    elevation: 10,
+    backgroundColor: "white",
+    paddingTop: 20,
+    alignSelf: "center",
+    width: 300,
+    paddingLeft: 10,
+    paddingRight: 10,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    height:'80%',
 },
 
 inpText: {
     fontSize: 18,
-    left: 40,
+    left: 20,
     fontWeight: "400",
     marginBottom: 5,
 },
@@ -162,25 +191,25 @@ inpText: {
 input: {
     height: 50,
     backgroundColor: "white",
-    width: "80%",
+    width: "90%",
     alignSelf: "center",
     marginBottom: 20,
     borderRadius: 5,
     color: "black",
-    borderWidth: 2,
-    borderColor: "#F9D157",
+    borderWidth: 1,
+    borderColor: "grey",
 },
 
 btn: {
     top: 10,
     height: 60,
-    width: 290,
+    width: 250,
     backgroundColor: "#FF5959",
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
-    marginBottom: 40,
+    borderRadius: 30,
+    marginBottom:30,
 },
 
 btnText: {

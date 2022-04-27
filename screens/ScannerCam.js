@@ -165,6 +165,7 @@ const ScannerCam = ({initialProps}) => {
               console.log("text recognised="+textRecognized)
               //await recognizeTextFromImage(data.uri);
             const resultFromUri = await MlkitOcr.detectFromUri(data.uri);
+               //console.log('Response Format',resultFromUri)
                console.log('Text Recognition On-Device', resultFromUri[0].text);
                setText(resultFromUri)
                setImgSrc({uri: data.uri});

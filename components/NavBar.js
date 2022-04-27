@@ -9,7 +9,7 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import axios from 'axios';
-import Voice from '@react-native-voice/voice';
+//import Voice from '@react-native-voice/voice';
 
 
 export default function NavBar({txt, text, navigation, color}) {

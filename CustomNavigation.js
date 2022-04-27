@@ -21,6 +21,7 @@ import MedTab from "./screens/MedTab";
 import Med_details from "./screens/Med_details";
 import ApptTab from "./screens/ApptTab";
 import appt_details from "./screens/appt_details";
+import event_details from "./screens/event_details";
 import HelpPage from './screens/HelpPage';
 import HelpSection from "./screens/HelpSection";
 // import DrawerContent from "./screens/DrawerContent";
@@ -67,6 +68,10 @@ const ScreenNavigator1 = () => {
       <Stack.Screen
         name="Appt_details"
         component={appt_details}
+      />
+      <Stack.Screen
+        name="Event_details"
+        component={event_details}
       />
        <Stack.Screen
         name="Events"
@@ -138,8 +143,8 @@ const ScreenNavigator2 = () => {
         />
       </Stack.Navigator>
     );
-  }
-  
+  };
+
   export {ScreenNavigator4};  // Stack-Navigator for Screen 3 Tab
 
   const ScreenNavigator5 = () => {

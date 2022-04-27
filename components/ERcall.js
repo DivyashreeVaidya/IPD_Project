@@ -14,9 +14,9 @@ export default class ERcall extends Component {
     let phoneNumber = '';
 
     if (Platform.OS === 'android') {
-      phoneNumber = 'tel:${9867919668}';
+      phoneNumber = 'tel:${7045252232}';
     } else {
-      phoneNumber = 'telprompt:${9867919668}';
+      phoneNumber = 'telprompt:${7045252232}';
     }
 
     Linking.openURL(phoneNumber);

@@ -17,7 +17,7 @@ import NavBar from '../components/NavBar';
 const event_details = (props) => {
 
     const backHandler = () => {
-        props.navigation.navigate('apptTab');
+        props.navigation.navigate('ApptTab');
     };
 
     return (

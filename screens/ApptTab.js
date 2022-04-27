@@ -82,7 +82,7 @@ const ApptTab = ({navigation}) => {
                     {events.map(event => {
 
                             return(
-                        <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Med_details', event)} >
+                        <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Event_details', event)} >
                             <Text style={styles.medName}>{event.event_name}</Text>
                             <Text style={styles.dose}>Date: {event.event_date}</Text>
                         </TouchableOpacity>);

@@ -134,6 +134,7 @@ android {
         missingDimensionStrategy 'react-native-camera', 'general' // <--- insert this line
         missingDimensionStrategy 'react-native-camera', 'mlkit' // <--- replace general with mlkit
     }
+  
     splits {
         abi {
             reset()
@@ -160,6 +161,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            
         }
     }
 

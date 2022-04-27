@@ -33,6 +33,7 @@ import ReadingGlasses from "./screens/ReadingGlasses";
 import CalendarPage from "./screens/CalendarPage";
 import EmergencyCalls from "./screens/EmergencyCalls";
 import ContentLibrary from "./screens/ContentLibrary";
+import VoiceNav from "./screens/VoiceNav";
 
 const Stack = createStackNavigator();  // creates object for Stack Navigator
 
@@ -98,6 +99,11 @@ const ScreenNavigator1 = () => {
         name="Help Page"
         component={HelpPage}
       />
+
+      {/* <Stack.Screen
+        name="Voice Nav"
+        component={VoiceNav}
+      /> */}
     </Stack.Navigator>
   );
 }

@@ -169,11 +169,11 @@ export default function NavBar({txt, text, navigation, color}) {
                 {!txt ? 
                     <View style={styles.content}>
                         <Text style={styles.hText}>Heyy {info.username}!</Text>
-                        <TouchableOpacity style={{alignSelf: 'center', bottom: 20, left: 40}}>
+                        <TouchableOpacity onPress = {() => navigation.navigate('Voice Nav')} style={{alignSelf: 'center', bottom: 20, left: 40}}>
                             <Image source={require("../assets/mic-off.png")}/>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('Help Section')}>
-                            <Image style={styles.hImg} source={require("../assets/Help.png")}/>
+                        <TouchableOpacity style={styles.hImg} onPress={() => navigation.navigate('Help Section')}>
+                            <Image source={require("../assets/Help.png")}/>
                         </TouchableOpacity>
                     </View>
                     

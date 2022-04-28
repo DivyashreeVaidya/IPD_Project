@@ -90,6 +90,10 @@ const ScreenNavigator1 = () => {
         name="Add Meds"
         component={AddMeds}
       />
+        <Stack.Screen
+          name="Calendar"
+          component={CalendarPage}
+        />
       <Stack.Screen
         name="Help Section"
         component={HelpSection}
@@ -99,11 +103,23 @@ const ScreenNavigator1 = () => {
         name="Help Page"
         component={HelpPage}
       />
+      <Stack.Screen
+          name="Content Library"
+          component={ContentLibrary}
+        />
+         <Stack.Screen
+          name="Audio Library"
+          component={AudioLibrary}
+        />
+        <Stack.Screen
+          name="Video Library"
+          component={VideoLibrary}
+        />
 
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Voice Nav"
         component={VoiceNav}
-      /> */}
+      />
     </Stack.Navigator>
   );
 }
@@ -156,7 +172,7 @@ const ScreenNavigator2 = () => {
   const ScreenNavigator5 = () => {
       // contains all child component screens within a stack.
     return (
-      <Stack.Navigator >     
+      <Stack.Navigator >
          <Stack.Screen
           name="Content Library"
           component={ContentLibrary}

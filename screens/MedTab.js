@@ -49,7 +49,7 @@ const MedTab = ({navigation}) => {
 
                         if (med.morning_dose !== 0) {
                             return(
-                        <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Med_details', med)} >
+                        <TouchableOpacity key={med.id} style={styles.med} onPress={() => navigation.navigate('Med_details', med)} >
                             <Text style={styles.medName}>{med.med_name}</Text>
                             <Text style={styles.dose}>Dose: {med.morning_dose}</Text>
                             <Text style={styles.reason}>{med.reason}</Text>
@@ -81,7 +81,7 @@ const MedTab = ({navigation}) => {
 
                         if (med.noon_dose !== 0) {
                             return(
-                        <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Med_details', med)} >
+                        <TouchableOpacity key={med.id} style={styles.med} onPress={() => navigation.navigate('Med_details', med)} >
                             <Text style={styles.medName}>{med.med_name}</Text>
                             <Text style={styles.dose}>Dose: {med.noon_dose}</Text>
                             <Text style={styles.reason}>{med.reason}</Text>
@@ -103,7 +103,7 @@ const MedTab = ({navigation}) => {
 
                         if (med.evening_dose !== 0) {
                             return(
-                        <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Med_details', med)} >
+                        <TouchableOpacity key={med.id} style={styles.med} onPress={() => navigation.navigate('Med_details', med)} >
                             <Text style={styles.medName}>{med.med_name}</Text>
                             <Text style={styles.dose}>Dose: {med.evening_dose}</Text>
                             <Text style={styles.reason}>{med.reason}</Text>

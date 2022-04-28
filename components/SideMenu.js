@@ -57,14 +57,19 @@ export default function SideMenu(props) {
                     <Text style={{"left": -165, "fontSize": 20}}>Appointment Tab</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.content} >
+                <TouchableOpacity style={styles.content} onPress={() => props.navigation.navigate('Content Library')}>
                     <Image style={{"right":210,"height": 30, "resizeMode": "contain",opacity: 0.6}} source={require("../assets/explore.png")}/>
                     <Text style={{right:420,fontSize: 20}}>Explore</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.content} onPress={() => props.navigation.navigate('CalendarPage')}>
+                <TouchableOpacity style={styles.content} onPress={() => props.navigation.navigate('Calendar')}>
                     <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/Calendar.png")}/>
                     <Text style={{right:165,fontSize: 20}}>Calendar</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.content} onPress={() => props.navigation.navigate('Help Section')}>
+                    <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/Calendar.png")}/>
+                    <Text style={{right:165,fontSize: 20}}>Help Section</Text>
                 </TouchableOpacity>
                 
                 

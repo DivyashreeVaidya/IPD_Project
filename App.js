@@ -27,6 +27,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // import EmergencyCalls from './screens/EmergencyCalls';
 // import Stacks from './navigation/stacks';
 
+
+
 const Stack = createNativeStackNavigator();
 //const token = '';
 const App = () => {

@@ -1,9 +1,12 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable prettier/prettier */
 /* eslint-disable keyword-spacing */
 
 /* eslint-disable quotes */
 import React, {useEffect, useState} from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 //import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
@@ -44,6 +47,17 @@ const ApptTab = ({navigation}) => {
 
     }, []);
 
+    // const handleDelete = async (id, e) => {
+    //     let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+    //     await axios.get(`http://ipdprojectchadi.pythonanywhere.com/appt_delete/${id}`, {
+    //             headers: {
+    //                 'Authorization': `Token ${token}` ,
+    //             },
+    //         })
+    //             .then(res => console.log(res.data))
+    //             .catch(err => console.log(err));
+    // }
+
 
 
     return (
@@ -61,9 +75,16 @@ const ApptTab = ({navigation}) => {
 
 {/* change navigation to appt_details */}
                             return(
-                        <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Appt_details', appt)} >
-                            <Text style={styles.medName}>{appt.doc_name}</Text>
-                            <Text style={styles.dose}>Date: {JSON.stringify(appt.date).substring(1, 11)}</Text>
+                        <TouchableOpacity key={appt.id} style={styles.med} onPress={() => navigation.navigate('Appt_details', appt)} >
+                            <View>
+                                <Text style={styles.medName}>{appt.doc_name}</Text>
+                                <Text style={styles.dose}>Date: {JSON.stringify(appt.date).substring(1, 11)}</Text>
+                            </View>
+                            
+                            {/* <TouchableOpacity onPress={(e) => handleDelete(appt.id, e)} style={{alignSelf: "center", marginRight: 20}}> */}
+                            <TouchableOpacity style={{alignSelf: "center", marginRight: 20}}>
+                                <Image source={require("../assets/del.png")}/>
+                             </TouchableOpacity>
                         </TouchableOpacity>);
 
 
@@ -82,9 +103,15 @@ const ApptTab = ({navigation}) => {
                     {events.map(event => {
 
                             return(
-                        <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Event_details', event)} >
-                            <Text style={styles.medName}>{event.event_name}</Text>
-                            <Text style={styles.dose}>Date: {event.event_date}</Text>
+                        <TouchableOpacity key={event.id} style={styles.med} onPress={() => navigation.navigate('Event_details', event)} >
+                            <View>
+                                <Text style={styles.medName}>{event.event_name}</Text>
+                                <Text style={styles.dose}>Date: {event.event_date}</Text>
+                            </View>
+                            
+                            <TouchableOpacity style={{alignSelf: "center", marginRight: 20}}>
+                                <Image source={require("../assets/del.png")}/>
+                             </TouchableOpacity>
                         </TouchableOpacity>);
 
 
@@ -132,6 +159,8 @@ const styles = StyleSheet.create({
         margin: 5,
         borderRadius: 10,
         padding: 10,
+        flexDirection: "row",
+        justifyContent: "space-between",
     },
 
     medName: {

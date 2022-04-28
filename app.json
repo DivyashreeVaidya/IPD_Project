@@ -1,4 +1,16 @@
 {
   "name": "IPD_SNC",
-  "displayName": "IPD_SNC"
+  "displayName": "IPD_SNC",
+  "expo": {
+    "plugins": [
+      [
+        "react-native-google-speech-to-text",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "speechRecogntionPermission": "Allow $(PRODUCT_NAME) to securely recognize user speech"
+        }
+      ]
+    ]
+  }
 }
+

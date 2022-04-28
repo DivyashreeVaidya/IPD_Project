@@ -35,8 +35,8 @@ const HelpSection = ({navigation}) => {
                             let ind = {
                                 ind: features.indexOf(feature)};
                             return(
-                            <TouchableOpacity style={styles.med} onPress={() => navigation.navigate('Help Page', ind)} >
-                            <Text style={styles.medName}>{feature}</Text>
+                            <TouchableOpacity key={ind.ind} style={styles.med} onPress={() => navigation.navigate('Help Page', ind)} >
+                                <Text style={styles.medName}>{feature}</Text>
                             </TouchableOpacity>);
 
 

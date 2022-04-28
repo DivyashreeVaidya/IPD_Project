@@ -24,6 +24,7 @@ import appt_details from "./screens/appt_details";
 import event_details from "./screens/event_details";
 import HelpPage from './screens/HelpPage';
 import HelpSection from "./screens/HelpSection";
+import WellbeingTest from "./screens/WellbeingTest";
 // import DrawerContent from "./screens/DrawerContent";
 
 
@@ -90,14 +91,33 @@ const ScreenNavigator1 = () => {
         component={AddMeds}
       />
       <Stack.Screen
+          name="Weekly Check In"
+          component={WellbeingTest}
+        />
+      <Stack.Screen
         name="Help Section"
         component={HelpSection}
       />
-
       <Stack.Screen
         name="Help Page"
         component={HelpPage}
       />
+          <Stack.Screen
+            name="Calendar"
+            component={CalendarPage}
+        />
+        <Stack.Screen
+          name="Content Library"
+          component={ContentLibrary}
+        />
+         <Stack.Screen
+          name="Audio Library"
+          component={AudioLibrary}
+        />
+        <Stack.Screen
+          name="Video Library"
+          component={VideoLibrary}
+        />
     </Stack.Navigator>
   );
 }
@@ -121,18 +141,13 @@ const ScreenNavigator2 = () => {
   
   export {ScreenNavigator2}; // Stack-Navigator for Screen 2 Tab
 
-  const ScreenNavigator3 = () => {
-    return (
-      <Stack.Navigator >
-          <Stack.Screen
-            name="Calendar"
-            component={CalendarPage}
-        />
-      </Stack.Navigator>
-    );
-  }
+  // const ScreenNavigator3 = () => {
+  //   return (
+     
+  //   );
+  // }
   
-  export {ScreenNavigator3};  // Stack-Navigator for Screen 3 Tab
+  // export {ScreenNavigator3};  // Stack-Navigator for Screen 3 Tab
 
   const ScreenNavigator4 = () => {
     return (
@@ -147,24 +162,13 @@ const ScreenNavigator2 = () => {
 
   export {ScreenNavigator4};  // Stack-Navigator for Screen 3 Tab
 
-  const ScreenNavigator5 = () => {
-      // contains all child component screens within a stack.
-    return (
-      <Stack.Navigator >     
-         <Stack.Screen
-          name="Content Library"
-          component={ContentLibrary}
-        />
-         <Stack.Screen
-          name="Audio Library"
-          component={AudioLibrary}
-        />
-        <Stack.Screen
-          name="Video Library"
-          component={VideoLibrary}
-        />
-      </Stack.Navigator>
-    );
-  }
+  // const ScreenNavigator5 = () => {
+  //     // contains all child component screens within a stack.
+  //   return (
+  //     <Stack.Navigator >     
+         
+  //     </Stack.Navigator>
+  //   );
+  // }
   
-  export {ScreenNavigator5}; // Stack-Navigator for Screen 5 Tab
+  // export {ScreenNavigator5}; // Stack-Navigator for Screen 5 Tab

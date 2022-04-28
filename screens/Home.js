@@ -9,6 +9,7 @@ import {
     Image,
     View,
     TouchableOpacity,
+    ScrollView,
     DevSettings
   } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -17,6 +18,7 @@ import EventsPage from './EventsPage';
 import AddAppointments from './AddAppointments';
 import AddOtherEvent from './AddOtherEvent';
 import AddMeds from './AddMeds';
+import WellbeingTest from './WellbeingTest';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button, Snackbar } from 'react-native-paper';
 import {NavigationContainer} from "@react-navigation/native";
@@ -31,6 +33,9 @@ const Home = ({navigation}) => {
 
 function eventHandler () {
     navigation.navigate('Events');
+}
+function testHandler () {
+    navigation.navigate('Weekly Check In');
 }
 const [token, setToken] = useState();
 // const logoutHandler = async () => {
@@ -65,7 +70,7 @@ function medsHandler () {
 useEffect(() => {	
     })
 return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
         <NavBar txt = {false} text="hello" navigation={navigation} />
 
         {/* <View style={styles.eTabs}>
@@ -77,14 +82,14 @@ return (
         </View> */}
 
         <View style={styles.tab1}>
-        <Text style={styles.tabText1}>Add an event</Text>
+        <Text style={styles.tabText1}>How are you feeling today?</Text>
         <View style={styles.tabContent}>
 
-            <Image style={styles.tabImg1} source={require("../assets/calendarIcon.png")}/>
+            <Image style={styles.tabImg1} source={require("../assets/wellbeing_home2.png")}/>
             
-            <TouchableOpacity onPress={eventHandler}>
+            <TouchableOpacity onPress={testHandler}>
             <View style={styles.tabBtn1}>
-                <Text style={styles.btnText1} >ADD</Text>
+                <Text style={styles.btnText1} >CHECK-IN</Text>
             </View>
             </TouchableOpacity>
         </View>
@@ -103,11 +108,23 @@ return (
             </View>
             </TouchableOpacity>
             </View>
+        </View>  
+        <View style={styles.tab3}>
+        <Text style={styles.tabText1}>Add an event</Text>
+        <View style={styles.tabContent}>
 
-
+            <Image style={styles.tabImg3} source={require("../assets/calendarIcon.png")}/>
+            
+            <TouchableOpacity onPress={eventHandler}>
+            <View style={styles.tabBtn3}>
+                <Text style={styles.btnText1} >ADD</Text>
+            </View>
+            </TouchableOpacity>
         </View>
-        
-    </View>
+        </View>
+        <View style={styles.tab4}>
+        </View>    
+    </ScrollView>
 );
 };
 
@@ -170,13 +187,23 @@ tab1: {
     opacity: 0.8,
 },
 tab3: {
-    top: 60,
-    height: 220,
-    width: "92%",
-    borderRadius: 7,
+    bottom:-70,
+    height: 240,
+    width: 310,
+    borderRadius: 20,
     padding: 20,
     alignSelf: "center",
     backgroundColor: "#F9D157",
+    opacity: 0.8,
+},
+tab4: {
+    bottom:-300,
+    height: 130,
+    width: 310,
+    borderRadius: 20,
+    alignSelf: "center",
+    backgroundColor: "#F9D157",
+    opacity: 0,
 },
 tabText1: {
     top: 10,
@@ -185,7 +212,26 @@ tabText1: {
 },
 
 tabBtn1: {
-    top: 60,
+    top: 40,
+    left: 50,
+    width: 100,
+    height: 50,
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+},
+tabBtn3: {
+    top: 65,
     left: 50,
     width: 100,
     height: 50,
@@ -209,7 +255,13 @@ btnText1: {
 },
 
 tabImg1: {
-    top: 30,
+    top:-4,
+    height:-1,
+    width:120,
+    left: -4,
+},
+tabImg3: {
+    top: 35,
     height: 90,
     left: -20,
 },
@@ -261,7 +313,7 @@ tabImg2: {
 },
 
 btnText2: {
-    fontSize: 16,
+    fontSize: 20,
 },
 });
 

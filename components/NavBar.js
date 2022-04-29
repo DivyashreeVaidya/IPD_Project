@@ -163,17 +163,17 @@ export default function NavBar({txt, text, navigation, color}) {
             <View style={color ? styles.header1 : styles.header}>
 
                 <TouchableOpacity onPress={() => navigation.navigate('SideMenu', user)}>
-                    <Image style={styles.menu} source={require("../assets/menu-blk.png")}/>
+                    <Image style={styles.menu} resizeMode='contain' source={require("../assets/menu-blk1.png")}/>
                 </TouchableOpacity>
                 
                 {!txt ? 
                     <View style={styles.content}>
                         <Text style={styles.hText}>Heyy {info.username}!</Text>
                         <TouchableOpacity onPress = {() => navigation.navigate('Voice Nav')} style={{alignSelf: 'center', bottom: 20, left: 40}}>
-                            <Image source={require("../assets/mic-off.png")}/>
+                            <Image source={require("../assets/mic-off.png")} resizeMode='contain' style={{width:30,height:30}}/>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.hImg} onPress={() => navigation.navigate('Help Section')}>
-                            <Image source={require("../assets/Help.png")}/>
+                            <Image source={require("../assets/Help.png")} resizeMode='contain' style={{width:35,height:35}}/>
                         </TouchableOpacity>
                     </View>
                     
@@ -262,6 +262,8 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
         top: 10,
         left: 10,
+        height:30,
+        width:30
     },
 
     content: {

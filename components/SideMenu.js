@@ -29,7 +29,7 @@ export default function SideMenu(props) {
         <View style={styles.sideBar}>
             <View style={styles.top}>
                 <TouchableOpacity onPress={() => props.navigation.navigate('Home')} >
-                    <Image style={styles.close} source={require("../assets/Close.png")}/>
+                    <Image style={styles.close} resizeMode='contain' source={require("../assets/close1.png")}/>
                 </TouchableOpacity>
 
                 <Text style={styles.name} >{props.route.params.name}</Text>
@@ -38,8 +38,8 @@ export default function SideMenu(props) {
 
             <ScrollView style={{height: 450,backgroundColor: "white"}}>
                 <TouchableOpacity style={styles.content} onPress={() => props.navigation.navigate('Profile')}>
-                    <Image style={styles.contentImg} source={require("../assets/Profile.png")}/>
-                    <Text style={{"left": 60, "fontSize": 20}}>My Profile</Text>
+                    <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/pr.png")}/>
+                    <Text style={{"right": 165, "fontSize": 20}}>My Profile</Text>
                 </TouchableOpacity>
 
                 {/* <TouchableOpacity style={styles.content} >
@@ -68,15 +68,15 @@ export default function SideMenu(props) {
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.content} onPress={() => props.navigation.navigate('Help Section')}>
-                    <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/Calendar.png")}/>
+                    <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/help2.png")}/>
                     <Text style={{right:165,fontSize: 20}}>Help Section</Text>
                 </TouchableOpacity>
                 
                 
 
                 <TouchableOpacity style={styles.content} onPress={(e)=>logoutHandler('@token')}>
-                    <Image style={styles.contentImg} source={require("../assets/logout.png")}/>
-                    <Text style={styles.contentTxt}>Logout</Text>
+                    <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/logout1.png")}/>
+                    <Text style={{right:165,fontSize: 20}}> Logout</Text>
                 </TouchableOpacity>
             </ScrollView>
 
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
         top: 20,
         alignSelf: "flex-end",
         right: 20,
-        height:20,
-        width: 20,
+        height:26,
+        width:26
     },
 
     name: {

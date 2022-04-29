@@ -12,7 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 import SpeechToText from 'react-native-google-speech-to-text';
-
+//import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 
 const VoiceNav = ({navigation}) => {
 
@@ -91,6 +91,7 @@ const VoiceNav = ({navigation}) => {
             >
               <Image
                 source={require("../assets/mic-on.png")}
+                resizeMode='contain'
                 style={{ width: 25, height: 25 }}
               />
             </TouchableOpacity>

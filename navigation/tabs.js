@@ -7,6 +7,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useState,useEffect } from 'react';
 import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call'
 // import Home from '../screens/Home';
 // import ContentLibrary from '../screens/ContentLibrary';
 // import CalendarPage from '../screens/CalendarPage';
@@ -23,7 +24,8 @@ style={{
     alignItems:'center',
     ...styles.shadow,
 }}
-onPress={onPress}>
+onPress={onPress}
+onLongPress={async () => {await RNImmediatePhoneCall.immediatePhoneCall('9920491668')}}>
     <View style={{
         width: 70,
         height:70,

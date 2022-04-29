@@ -5,11 +5,12 @@
 import React, { Component } from 'react';
 import { Text, Image, StyleSheet, Linking, Platform, TouchableOpacity } from 'react-native';
 import { Surface, Headline } from 'react-native-paper';
+import RNImmediatePhoneCall from 'react-native-immediate-phone-call'
 
 
 export default class ERcall extends Component {
 
-  makeCall = () => {
+  makeCall = async () => {
 
     let phoneNumber = '';
 
@@ -20,6 +21,8 @@ export default class ERcall extends Component {
     }
 
     Linking.openURL(phoneNumber);
+
+    //await RNImmediatePhoneCall.immediatePhoneCall('9920491668')
   };
 
   render() {

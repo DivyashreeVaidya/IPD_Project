@@ -33,6 +33,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-google-speech-to-text": "^1.0.4",
     "react-native-image-crop-picker": "^0.37.2",
+    "react-native-immediate-phone-call": "^2.0.0",
     "react-native-mlkit-ocr": "^0.2.3",
     "react-native-paper": "^4.10.0",
     "react-native-progress-circle": "^2.1.0",

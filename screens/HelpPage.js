@@ -25,7 +25,7 @@ const HelpPage = (props) => {
     };
 
 
-
+    
 
     let ind = props.route.params.ind;
 
@@ -74,7 +74,7 @@ const HelpPage = (props) => {
                             
                         } else {
                             return (
-                            <View style={styles.tab1}>
+                            <View key = {images[ind].indexOf(image) + 1} style={styles.tab1}>
 
                                 <Text style={styles.info}>Step {images[ind].indexOf(image) + 1}</Text>
                                 <View style={styles.img_content}>
@@ -135,7 +135,7 @@ tab1: {
 title: {
     fontWeight: "500",
     fontSize: 30,
-    marginBottom: 20,
+    marginBottom: 30,
     top: 120,
     alignSelf: "center",
 },
@@ -146,7 +146,7 @@ info: {
 },
 
 tabBtn1: {
-    top: 20,
+    top: 10,
     width: 100,
     height: 50,
     marginBottom: 50,

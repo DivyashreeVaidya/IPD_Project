@@ -9,7 +9,7 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import axios from 'axios';
-//import Voice from '@react-native-voice/voice';
+// import Voice from '@react-native-voice/voice';
 
 
 export default function NavBar({txt, text, navigation, color}) {
@@ -33,9 +33,9 @@ export default function NavBar({txt, text, navigation, color}) {
 
         async function getData() {
 
-            let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+            let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-            await axios.get('http://ipdprojectchadi.pythonanywhere.com/more_info/', {
+            await axios.get('https://35c1-58-84-61-72.in.ngrok.io/more_info/', {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },
@@ -169,11 +169,11 @@ export default function NavBar({txt, text, navigation, color}) {
                 {!txt ? 
                     <View style={styles.content}>
                         <Text style={styles.hText}>Heyy {info.username}!</Text>
-                        <TouchableOpacity style={{alignSelf: 'center', bottom: 20, left: 40}}>
+                        <TouchableOpacity onPress = {() => navigation.navigate('Voice Nav')} style={{alignSelf: 'center', bottom: 20, left: 40}}>
                             <Image source={require("../assets/mic-off.png")}/>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('Help Section')}>
-                            <Image style={styles.hImg} source={require("../assets/Help.png")}/>
+                        <TouchableOpacity style={styles.hImg} onPress={() => navigation.navigate('Help Section')}>
+                            <Image source={require("../assets/Help.png")}/>
                         </TouchableOpacity>
                     </View>
                     

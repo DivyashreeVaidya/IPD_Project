@@ -162,7 +162,7 @@ const Login = ({navigation}) => {
                body: raw,
                redirect: 'follow',
                };
-               fetch("http://ipdprojectchadi.pythonanywhere.com/login/", requestOptions)
+               fetch("https://35c1-58-84-61-72.in.ngrok.io/login/", requestOptions)
                 .then(response => response.json()
                                    )
                 .then(result => {console.log(result.token)

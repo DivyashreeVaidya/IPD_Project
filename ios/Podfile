@@ -20,6 +20,8 @@ target 'IPD_SNC' do
 
   pod 'react-native-voice', :path => '../node_modules/@react-native-voice/voice'
 
+  pod 'react-native-speech-to-text', :path => '../node_modules/react-native-google-speech-to-text'
+
   target 'IPD_SNCTests' do
     inherit! :complete
     # Pods for testing

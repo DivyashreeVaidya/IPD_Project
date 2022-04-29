@@ -32,9 +32,9 @@ const AddMeds = ({navigation}) => {
         };
 
 
-        let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+        let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-        await axios.post('http://ipdprojectchadi.pythonanywhere.com/medicine/', medData, {
+        await axios.post('https://35c1-58-84-61-72.in.ngrok.io/medicine/', medData, {
             headers: {
                 'Authorization': `Token ${token}` ,
             },

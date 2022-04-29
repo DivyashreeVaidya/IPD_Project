@@ -7,11 +7,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useState,useEffect } from 'react';
 import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import Home from '../screens/Home';
-import ContentLibrary from '../screens/ContentLibrary';
-import CalendarPage from '../screens/CalendarPage';
-import EmergencyCalls from '../screens/EmergencyCalls';
-import ReadingGlasses from '../screens/ReadingGlasses';
+// import Home from '../screens/Home';
+// import ContentLibrary from '../screens/ContentLibrary';
+// import CalendarPage from '../screens/CalendarPage';
+// import EmergencyCalls from '../screens/EmergencyCalls';
+// import ReadingGlasses from '../screens/ReadingGlasses';
 import {ScreenNavigator1, ScreenNavigator2, ScreenNavigator3, ScreenNavigator4, ScreenNavigator5} from '../CustomNavigation';
 const Tab = createBottomTabNavigator();
 

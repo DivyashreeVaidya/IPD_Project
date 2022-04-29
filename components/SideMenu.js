@@ -66,6 +66,11 @@ export default function SideMenu(props) {
                     <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/Calendar.png")}/>
                     <Text style={{right:165,fontSize: 20}}>Calendar</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity style={styles.content} onPress={() => props.navigation.navigate('Help Section')}>
+                    <Image style={{"right":84,"height": 30, "resizeMode": "contain", opacity: 0.6}} source={require("../assets/Calendar.png")}/>
+                    <Text style={{right:165,fontSize: 20}}>Help Section</Text>
+                </TouchableOpacity>
                 
                 
 

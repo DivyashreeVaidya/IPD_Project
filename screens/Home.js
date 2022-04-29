@@ -85,7 +85,7 @@ return (
         <Text style={styles.tabText1}>How are you feeling today?</Text>
         <View style={styles.tabContent}>
 
-            <Image style={styles.tabImg1} source={require("../assets/wellbeing_home2.png")}/>
+            <Image style={styles.tabImg1} source={require("../assets/wellbeing.png")}/>
             
             <TouchableOpacity onPress={testHandler}>
             <View style={styles.tabBtn1}>

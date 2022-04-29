@@ -5715,10 +5715,10 @@
     "invariant" "^2.2.4"
     "prop-types" "^15.7.2"
 
-"react-native-haptic-feedback@^1.13.1":
-  "integrity" "sha512-aP4AhnxMPnlMEeG0ZVit5+ji85mhzvqQjWkGuOpNwjlJuWJ7IkUvLv/H32+S+Kb41eAl78z9k3FG9waPmLv/IQ=="
-  "resolved" "https://registry.npmjs.org/react-native-haptic-feedback/-/react-native-haptic-feedback-1.13.1.tgz"
-  "version" "1.13.1"
+"react-native-google-speech-to-text@^1.0.4":
+  "integrity" "sha512-UuEQyJHiorI96qhPddtaWUR1VcuwcsZQHUVGOFLHuo6e5h4eSTjn3GejfMlQ3chSafb+fU1xsktASHnoDpx2KA=="
+  "resolved" "https://registry.npmjs.org/react-native-google-speech-to-text/-/react-native-google-speech-to-text-1.0.4.tgz"
+  "version" "1.0.4"
 
 "react-native-image-crop-picker@^0.37.2":
   "integrity" "sha512-YwZXW21Km8+3tSt0smTaLVgY4398c0/OJcpcH6EP0JDOt1BNNxl/R8m6qdvnwdXdIoa0CCnMVW6TL9IN5ia9OA=="
@@ -5824,7 +5824,7 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@^0.0.0-0 || ^0.60.6 || ^0.61.5 || ^0.62.2 || ^0.63.2 || ^0.64.0 || ^0.65.0 || ^0.66.0 || 1000.0.0", "react-native@>=0.33", "react-native@>=0.40.0", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@>=0.60.0", "react-native@>=0.60.0-rc.0 <1.0.x", "react-native@0.65.1":
+"react-native@*", "react-native@^0.0.0-0 || ^0.60.6 || ^0.61.5 || ^0.62.2 || ^0.63.2 || ^0.64.0 || ^0.65.0 || ^0.66.0 || 1000.0.0", "react-native@>=0.33", "react-native@>=0.40.0", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@>=0.60.0-rc.0 <1.0.x", "react-native@0.65.1":
   "integrity" "sha512-0UOVSnlssweQZjuaUtzViCifE/4tXm8oRbxwakopc8GavPu9vLulde145GOw6QVYiOy4iL50f+2XXRdX9NmMeQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.65.1.tgz"
   "version" "0.65.1"

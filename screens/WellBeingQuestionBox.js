@@ -30,7 +30,15 @@ const WellbeingQuestionBox = () => {
         const [score, setScore] = useState(0);  
         const [testEnded, setTestEnded] = useState(false);
         const [showAnswers, setShowAnswers] = useState(false);
+        const [selected1, setSelected1] = useState(true);
+        const [selected2, setSelected2] = useState(true);
+        const [selected3, setSelected3] = useState(true);
+        const [selected4, setSelected4] = useState(true);
         const nextQuestion = () =>{
+            setSelected1(true)
+            setSelected2(true)
+            setSelected3(true)
+            setSelected4(true)
         setShowAnswers(false);
         const newIndex = currentIndex + 1
         setCurrentIndex(newIndex);
@@ -45,7 +53,9 @@ const WellbeingQuestionBox = () => {
             <View style={styles.tab1}>
             <Image style={styles.tabImg1} source={require("../assets/wellbeing_home2.png")}/>
         <Text style={styles.tabText1}>Thank You!</Text>
-        <Text style={styles.tabText1}>Your responses have been succesfully saved. <Image source={require("../assets/tick.png")} resizeMode='contain' style={{width:40,height:40}}/></Text>
+        <Text style={styles.tabText1}>Your responses have been succesfully saved.<Image source={require("../assets/tick.png")} resizeMode='contain' style={{width:30,height:30}}/></Text>
+        <Text style={styles.tabText1}>You can view the detailed report in your inbox.</Text>
+        {/* <Text style={styles.tabText1}>You scored : {score}</Text> */}
         <Text style={styles.tabText1}>Have a great day!</Text>
         <View style={styles.tabContent}>            
             {/* <TouchableOpacity>
@@ -71,11 +81,18 @@ const WellbeingQuestionBox = () => {
              </Headline></View>
              <Button 
                  disabled={showAnswers?true:false}
-                 style={styles.buttonStyle}
+                 style={{backgroundColor:"#FF5959",padding:10,width:300,height:65,
+                 marginLeft:'auto',
+                 marginRight:'auto', marginBottom:0, opacity:selected1?1:0.5}}
                  mode="contained"
                  onPress={() => 
                     {
-                        tempScore += questionnaire[currentIndex].Options[0].Weight
+                        setSelected1(true)
+                        setSelected2(false)
+                        setSelected3(false)
+                        setSelected4(false)
+                        tempScore = score + questionnaire[currentIndex].Options[0].Weight
+                        console.log(tempScore)
                         setScore(tempScore)
                         setShowAnswers(true)
                     
@@ -87,12 +104,18 @@ const WellbeingQuestionBox = () => {
                  </Button>
                  <Button 
                  disabled={showAnswers?true:false}
-                 style={styles.buttonStyle}
-                 mode="contained"
+                 style={{backgroundColor:"#FF5959",padding:10,width:300,height:65,
+                 marginLeft:'auto',
+                 marginRight:'auto', marginBottom:0, opacity:selected2?1:0.5}}
                  onPress={() => 
                     {
-                        tempScore += questionnaire[currentIndex].Options[1].Weight
+                        setSelected1(false)
+                        setSelected2(true)
+                        setSelected3(false)
+                        setSelected4(false)
+                        tempScore = score + questionnaire[currentIndex].Options[1].Weight
                         setScore(tempScore)
+                        console.log(tempScore)
                         setShowAnswers(true)
                     
                     }}
@@ -103,12 +126,19 @@ const WellbeingQuestionBox = () => {
                  </Button> 
                  <Button 
                  disabled={showAnswers?true:false} 
-                 style={styles.buttonStyle}
+                 style={{backgroundColor:"#FF5959",padding:10,width:300,height:65,
+                 marginLeft:'auto',
+                 marginRight:'auto', marginBottom:0, opacity:selected3?1:0.5}}
                  mode="contained"
                  onPress={() => 
                     {
-                        tempScore += questionnaire[currentIndex].Options[2].Weight
+                        setSelected1(false)
+                        setSelected2(false)
+                        setSelected3(true)
+                        setSelected4(false)
+                        tempScore = score + questionnaire[currentIndex].Options[2].Weight
                         setScore(tempScore)
+                        console.log(tempScore)
                         setShowAnswers(true)
                     
                     }}>
@@ -118,12 +148,19 @@ const WellbeingQuestionBox = () => {
                  </Button>
                  <Button 
                  disabled={showAnswers?true:false} 
-                 style={styles.buttonStyle}
+                 style={{backgroundColor:"#FF5959",padding:10,width:300,height:65,
+                 marginLeft:'auto',
+                 marginRight:'auto', marginBottom:0, opacity:selected4?1:0.5}}
                  mode="contained"
                  onPress={() => 
                     {
-                        tempScore += questionnaire[currentIndex].Options[3].Weight
+                        setSelected1(false)
+                        setSelected2(false)
+                        setSelected3(false)
+                        setSelected4(true)
+                        tempScore = score + questionnaire[currentIndex].Options[3].Weight
                         setScore(tempScore)
+                        console.log(tempScore)
                         setShowAnswers(true)
                     
                     }}>
@@ -132,12 +169,14 @@ const WellbeingQuestionBox = () => {
                  </Text>
                  </Button></>
                     
-               <Button 
+               {/* <Button 
                disabled={showAnswers?false:true} 
                style={styles.buttonStyle1}
                mode="contained"
                onPress={() => nextQuestion(true)}> 
-               <Surface
+               <TouchableOpacity
+
+               onPress={() => nextQuestion(true)}
                style={{ 
                 color:'white',
                 backgroundColor:'#FF5959',
@@ -150,8 +189,18 @@ const WellbeingQuestionBox = () => {
                 
                 }}>
                <Image source={require("../assets/next.png")} resizeMode='contain' style={{width:40,height:30,marginBottom:20}}/>
-               </Surface>
-               </Button>
+               </TouchableOpacity>
+               </Button> */}
+               {showAnswers?<TouchableOpacity
+style={styles.buttonStyle1}
+onPress={() => nextQuestion(true)}
+>
+<Image source={require("../assets/next.png")} resizeMode='contain' style={{width:40,height:30,marginBottom:20}}/>
+</TouchableOpacity>:<TouchableOpacity
+style={styles.buttonStyle1}
+>
+<Image source={require("../assets/next.png")} resizeMode='contain' style={{width:40,height:30,marginBottom:20}}/>
+</TouchableOpacity>}
         </View>
               
            </View>
@@ -216,7 +265,7 @@ const styles = StyleSheet.create({
     buttonStyle1:{backgroundColor:"#FF5959",padding:10,width:70,height:50, marginLeft:250, marginBottom:0},
     tab1: {
         top: 10,
-        height: 540,
+        height: 570,
         width: 310,
         borderRadius: 20,
         padding: 20,
@@ -231,7 +280,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: "400",
         color:'white',
-        padding:20,
+        padding:14,
         textAlign:'center'
     },
     

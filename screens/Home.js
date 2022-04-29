@@ -184,7 +184,7 @@ tab1: {
     padding: 20,
     alignSelf: "center",
     backgroundColor: "#F9D157",
-    opacity: 0.8,
+    opacity: 1,
 },
 tab3: {
     bottom:-70,
@@ -194,7 +194,7 @@ tab3: {
     padding: 20,
     alignSelf: "center",
     backgroundColor: "#F9D157",
-    opacity: 0.8,
+    opacity: 1,
 },
 tab4: {
     bottom:-300,
@@ -276,7 +276,7 @@ tab2: {
     alignSelf: "center",
     backgroundColor: "#FF5959",
     marginBottom: 20,
-    opacity: 0.8,
+    opacity: 1,
 },
 
 tabText2: {

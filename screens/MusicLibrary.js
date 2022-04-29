@@ -6,8 +6,26 @@
 import React from 'react';
 import { Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Button, Headline } from 'react-native-paper';
+//import TrackPlayer, { State } from 'react-native-track-player';
 
-const AudioLibrary = ({navigation}) => {
+//await TrackPlayer.setupPlayer()
+
+// const state = await TrackPlayer.getState();
+// if (state === State.Playing) {
+//     console.log('The player is playing');
+// };
+
+// let trackIndex = await TrackPlayer.getCurrentTrack();
+// let trackObject = await TrackPlayer.getTrack(trackIndex);
+// console.log(`Title: ${trackObject.title}`);
+
+// const position = await TrackPlayer.getPosition();
+// const duration = await TrackPlayer.getDuration();
+// console.log(`${duration - position} seconds left.`);
+
+
+
+const MusicLibrary = ({navigation}) => {
 
     function musicHandler () {
         navigation.navigate('Music Library');
@@ -20,37 +38,9 @@ const AudioLibrary = ({navigation}) => {
 
     return (
         <View style={styles.ePage}>
-            <Image style={styles.hImg} source={require("../assets/audiolib.png")}/>
-           <Headline style={styles.title}>What would you like to explore today?</Headline>
-           <Button 
-               style={styles.buttonStyle}
-               mode="contained"
-               onPress={musicHandler}>
-               <Text style={styles.btnText}> 
-               Music
-               </Text>
-               </Button>
-               <Button 
-               style={styles.buttonStyle}
-               mode="contained">
-               <Text style={styles.btnText}> 
-               AudioBooks 
-               </Text>
-               </Button> 
-               <Button  
-               style={styles.buttonStyle}
-               mode="contained">
-               <Text style={styles.btnText}> 
-               Guided Meditations 
-               </Text>
-               </Button>
-               <Button  
-               style={styles.buttonStyle}
-               mode="contained">
-               <Text style={styles.btnText}> 
-               Podcasts / Sleepcasts 
-               </Text>
-               </Button>    
+          
+           <Headline style={styles.title}>Track Player</Headline>
+             
         </View>
     )
 }
@@ -89,4 +79,4 @@ const styles = StyleSheet.create({
     marginRight:'auto', marginBottom:0}
 })
 
-export default AudioLibrary;
+export default MusicLibrary;

@@ -25,6 +25,7 @@ import event_details from "./screens/event_details";
 import HelpPage from './screens/HelpPage';
 import HelpSection from "./screens/HelpSection";
 import WellbeingTest from "./screens/WellbeingTest";
+import MusicLibrary from "./screens/MusicLibrary";
 // import DrawerContent from "./screens/DrawerContent";
 
 
@@ -115,6 +116,10 @@ const ScreenNavigator1 = () => {
           name="Audio Library"
           component={AudioLibrary}
         />
+        <Stack.Screen
+        name="Music Library"
+        component={MusicLibrary}
+      />
         <Stack.Screen
           name="Video Library"
           component={VideoLibrary}

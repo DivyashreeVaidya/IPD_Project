@@ -12,6 +12,7 @@ import AudioLibrary from '../screens/AudioLibrary';
 import VideoLibrary from '../screens/VideoLibrary';
 import CalendarPage from "./screens/CalendarPage";
 import ContentLibrary from "./screens/ContentLibrary";
+import MusicLibrary from '../screens/MusicLibrary';
 
 const Stack = createNativeStackNavigator();
 const Stacks = () => {
@@ -27,6 +28,7 @@ const Stacks = () => {
         <Stack.Screen name="Weekly Check In" component={WellbeingTest} />
         <Stack.Screen name="Calendar" component={CalendarPage} />
         <Stack.Screen name="Content Library" component={ContentLibrary} />
+        <Stack.Screen name="Music Library" component={MusicLibrary} />
       </Stack.Navigator>
     </Stack.Navigator>
   );

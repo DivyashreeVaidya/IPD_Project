@@ -23,9 +23,9 @@ const ApptTab = ({navigation}) => {
 
         async function getData() {
 
-            let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+            let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-            await axios.get('http://ipdprojectchadi.pythonanywhere.com/appt/', {
+            await axios.get('https://35c1-58-84-61-72.in.ngrok.io/appt/', {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },
@@ -34,7 +34,7 @@ const ApptTab = ({navigation}) => {
                 .catch(err => console.log(err));
 
 
-            await axios.get('http://ipdprojectchadi.pythonanywhere.com/other/', {
+            await axios.get('https://35c1-58-84-61-72.in.ngrok.io/other/', {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },
@@ -47,16 +47,16 @@ const ApptTab = ({navigation}) => {
 
     }, []);
 
-    // const handleDelete = async (id, e) => {
-    //     let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
-    //     await axios.get(`http://ipdprojectchadi.pythonanywhere.com/appt_delete/${id}`, {
-    //             headers: {
-    //                 'Authorization': `Token ${token}` ,
-    //             },
-    //         })
-    //             .then(res => console.log(res.data))
-    //             .catch(err => console.log(err));
-    // }
+    const handleDelete = async (id, e) => {
+        let token = "7029af283983bfd69a388d0d7740619bd151962b";
+        await axios.delete(`https://35c1-58-84-61-72.in.ngrok.io/appt_delete/${id}/`, {
+                headers: {
+                    'Authorization': `Token ${token}` ,
+                },
+            })
+                .then(res => console.log(res.data))
+                .catch(err => console.log(err));
+    }
 
 
 
@@ -82,7 +82,7 @@ const ApptTab = ({navigation}) => {
                             </View>
                             
                             {/* <TouchableOpacity onPress={(e) => handleDelete(appt.id, e)} style={{alignSelf: "center", marginRight: 20}}> */}
-                            <TouchableOpacity style={{alignSelf: "center", marginRight: 20}}>
+                            <TouchableOpacity onPress={(e) => handleDelete(appt.id, e)} style={{alignSelf: "center", marginRight: 20}}>
                                 <Image source={require("../assets/del.png")}/>
                              </TouchableOpacity>
                         </TouchableOpacity>);

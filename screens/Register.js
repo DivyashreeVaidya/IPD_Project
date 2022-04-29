@@ -156,7 +156,7 @@ const Register = ({navigation}) => {
                  body: raw,
                  redirect: 'follow',
                  };
-                 fetch("http://ipdprojectchadi.pythonanywhere.com/register/", requestOptions)
+                 fetch("https://35c1-58-84-61-72.in.ngrok.io/register/", requestOptions)
                   .then(response => response.text())
                   .then(result => {console.log(result)
                       console.log('its working!')

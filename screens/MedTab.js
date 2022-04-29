@@ -19,9 +19,9 @@ const MedTab = ({navigation}) => {
 
         async function getData() {
 
-            let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+            let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-            await axios.get('http://ipdprojectchadi.pythonanywhere.com/medicine/', {
+            await axios.get('https://35c1-58-84-61-72.in.ngrok.io/medicine/', {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },

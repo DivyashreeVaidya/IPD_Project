@@ -27,9 +27,9 @@ const AddAppointments = ({navigation}) => {
             additional_fields: addNote,
             time: JSON.stringify(date).substring(12, 23),
         };
-        let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
+        let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-        await axios.post('http://ipdprojectchadi.pythonanywhere.com/appt/', apptData, {
+        await axios.post('https://35c1-58-84-61-72.in.ngrok.io/appt/', apptData, {
             headers: {
                 'Authorization': `Token ${token}` ,
             },

@@ -30,7 +30,7 @@ const AddOtherEvent = ({navigation}) => {
 
         let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-        await axios.post('https://35c1-58-84-61-72.in.ngrok.io/other/', oEventData, {
+        await axios.post('https://6525-2402-3a80-6c2-6b2e-a473-385c-fe0b-4b9d.in.ngrok.io/other/', oEventData, {
             headers: {
                 'Authorization': `Token ${token}` ,
             },

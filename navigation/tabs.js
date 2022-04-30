@@ -15,8 +15,22 @@ import RNImmediatePhoneCall from 'react-native-immediate-phone-call'
 // import ReadingGlasses from '../screens/ReadingGlasses';
 import {ScreenNavigator1, ScreenNavigator2, ScreenNavigator3, ScreenNavigator4, ScreenNavigator5} from '../CustomNavigation';
 const Tab = createBottomTabNavigator();
+const makeCall = async () => {
 
+    let phoneNumber = '';
+
+    if (Platform.OS === 'android') {
+      phoneNumber = 'tel:${7045252232}';
+    } else {
+      phoneNumber = 'telprompt:${7045252232}';
+    }
+    console.log('working')
+    Linking.openURL(phoneNumber);
+
+    //await RNImmediatePhoneCall.immediatePhoneCall('9920491668')
+  };
 const CustomTabBarButton = ({children, onPress}) => (
+
 <TouchableOpacity
 style={{
     top:-30,
@@ -25,7 +39,9 @@ style={{
     ...styles.shadow,
 }}
 onPress={onPress}
-onLongPress={async () => {await RNImmediatePhoneCall.immediatePhoneCall('9920491668')}}>
+//onLongPress={async () => {await RNImmediatePhoneCall.immediatePhoneCall('9920491668')}}
+onLongPress={()=> Linking.openURL('tel:${7045252232}')}
+>
     <View style={{
         width: 70,
         height:70,

@@ -162,7 +162,7 @@ const Login = ({navigation}) => {
                body: raw,
                redirect: 'follow',
                };
-               fetch("https://35c1-58-84-61-72.in.ngrok.io/login/", requestOptions)
+               fetch("https://6525-2402-3a80-6c2-6b2e-a473-385c-fe0b-4b9d.in.ngrok.io/login/", requestOptions)
                 .then(response => response.json()
                                    )
                 .then(result => {console.log(result.token)

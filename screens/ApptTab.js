@@ -25,7 +25,7 @@ const ApptTab = ({navigation}) => {
 
             let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-            await axios.get('https://35c1-58-84-61-72.in.ngrok.io/appt/', {
+            await axios.get('https://6525-2402-3a80-6c2-6b2e-a473-385c-fe0b-4b9d.in.ngrok.io/appt/', {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },
@@ -34,7 +34,7 @@ const ApptTab = ({navigation}) => {
                 .catch(err => console.log(err));
 
 
-            await axios.get('https://35c1-58-84-61-72.in.ngrok.io/other/', {
+            await axios.get('https://6525-2402-3a80-6c2-6b2e-a473-385c-fe0b-4b9d.in.ngrok.io/other/', {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },
@@ -49,7 +49,7 @@ const ApptTab = ({navigation}) => {
 
     const handleDelete = async (id, e) => {
         let token = "7029af283983bfd69a388d0d7740619bd151962b";
-        await axios.delete(`https://35c1-58-84-61-72.in.ngrok.io/appt_delete/${id}/`, {
+        await axios.delete(`https://6525-2402-3a80-6c2-6b2e-a473-385c-fe0b-4b9d.in.ngrok.io/appt_delete/${id}/`, {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },

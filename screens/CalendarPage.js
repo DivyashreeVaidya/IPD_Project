@@ -24,7 +24,7 @@ import axios from 'axios';
 
 //             let token = "a5f10b1edaa3bdb7ce4dde6767d2a6ccf34ab831";
 
-//             await axios.get('http://ipdprojectchadi.pythonanywhere.com/appt/', {
+//             await axios.get('https://0fe5-2402-3a80-6c2-6b2e-dc8b-934c-4f66-201e.in.ngrok.io/appt/', {
 //                 headers: {
 //                     'Authorization': `Token ${token}` ,
 //                 },
@@ -166,7 +166,7 @@ const [apptsList, setApptsList] = useState([]);
 
             let token = "7029af283983bfd69a388d0d7740619bd151962b";
 
-            await axios.get('https://35c1-58-84-61-72.in.ngrok.io/appt/', {
+            await axios.get('https://6525-2402-3a80-6c2-6b2e-a473-385c-fe0b-4b9d.in.ngrok.io/appt/', {
                 headers: {
                     'Authorization': `Token ${token}` ,
                 },

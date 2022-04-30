@@ -156,7 +156,7 @@ const Register = ({navigation}) => {
                  body: raw,
                  redirect: 'follow',
                  };
-                 fetch("https://35c1-58-84-61-72.in.ngrok.io/register/", requestOptions)
+                 fetch("https://6525-2402-3a80-6c2-6b2e-a473-385c-fe0b-4b9d.in.ngrok.io/register/", requestOptions)
                   .then(response => response.text())
                   .then(result => {console.log(result)
                       console.log('its working!')
